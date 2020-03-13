@@ -1,0 +1,23 @@
+{
+  "name": "csud-doi",
+  "version": "0.1",
+  "homepage": "",
+  "description": "This is the site for 'DO Informatique at Collège du Sud'",
+  "devDependencies": {
+    "@abreto/markdown-it-katex": "^3.2.0",
+    "markdown-it-figure": "^0.2.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "vuepress": "^1.3.1",
+    "vuepress-plugin-export": "^0.2.0",
+    "vuepress-plugin-serve": "^2.0.1"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "dev-no-cache": "vuepress dev src --no-cache",
+    "build": "vuepress build src",
+    "build-no-cache": "vuepress build src --no-cache",
+    "export": "vuepress export src",
+    "serve": "vuepress serve src"
+  },
+  "dependencies": {}
+}
