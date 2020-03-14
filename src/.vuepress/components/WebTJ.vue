@@ -57,7 +57,8 @@ export default {
     };
   },
   mounted: function() {
-    this.iframe = this.$refs.editorIFrame;
+    this.updateIFramePosition();
+    // this.iframe.style.width = this.width;
 
     // grab a handle on the ace editor of WebTJ and on the jQuery ($) function
     const interval = setInterval(() => {
@@ -100,16 +101,26 @@ export default {
   beforeUpdate: function() {},
   watch: {
     initialCode: function(newCode, oldCode) {
+      this.updateIFramePosition();
       console.log("initialCode prop changed", newCode);
       this.code = newCode;
       console.log("editor updated");
       this.editor.setValue(this.preprocessCode(this.code));
       if (this.autorun) {
+        this.iframeGlobalSpace.stopProgram();
         this.iframeGlobalSpace.runProgram();
       }
     }
   },
   methods: {
+    updateIFramePosition: function() {
+      const widthNumber =
+        this.width.indexOf("%") > 0 ? this.width.split("%")[0] : undefined;
+
+      this.iframe = this.$refs.editorIFrame;
+      this.iframe.style.position = "relative";
+      this.iframe.style.left = `${-(widthNumber - 100) / 2}%`;
+    },
     preprocessCode: function(code) {
       return this.hideTurtle
         ? code.replace(/makeTurtle\(\)/g, `makeTurtle(); hideTurtle()`)
@@ -122,7 +133,7 @@ export default {
 </script>
 
 <style scoped>
-.webtj-iframe {
+.webtj-iframe1 {
   position: relative;
   left: -15%;
   width: 130%;
