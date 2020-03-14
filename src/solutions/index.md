@@ -1,5 +1,0 @@
----
-author: Cédric Donner
----
-
-# Musterlösungen

@@ -2,9 +2,27 @@
 
 ## Activités 1
 
+::: tip Remarque
+
+Ce corrigé n'est pas encore disponible
+
+:::
+
 ## Activités 2
 
+::: tip Remarque
+
+Ce corrigé n'est pas encore disponible
+
+:::
+
 ## Activités 3
+
+::: tip Remarque
+
+Ce corrigé n'est pas encore disponible
+
+:::
 
 ## Activité 11
 
@@ -18,34 +36,508 @@ vous élaboriez vos programmes et votre stratégie de manière réfléchie.
 
 :::
 
+### Partie A
+
+Ce problème n'est pas très difficile à décomposer intelligemment. Il s'agit
+clairement de définir d'abord une commande qui dessine un demi-cercle
+
 ```python webtj[autorun, width=100%]
-from math import pi
+from gturtle import *
 
-# print(pi)
+def demi_cercle():
+    repeat 180:
+        forward(1)
+        right(1)
 
-repeat 3:
-    print(3)
-
-
+makeTurtle()
+demi_cercle()
 ```
 
-Et voici un petit exemple avec la tortue. C'est tellement génial ce truc.
-Essayer, c'est l'adopter.
+On remarque cependant que cette commande `demi_cercle()` est assez lente. Pour
+l'optimiser, il suffit de dessiner un demi-polygone avec moins de côtés :
 
-```python webtj[autorun, height=500px]
+```python webtj[autorun, width=100%]
 from gturtle import *
+
+def demi_cercle():
+    repeat 18:
+        forward(10)
+        right(10)
+
+makeTurtle()
+demi_cercle()
+```
+
+qui ressemble encore tout autant à un cercle. Il suffit ensuite de répéter cette
+commande 8 fois pour dessiner la figure tout en veillant à replacer la tortue
+dans le bon sens pour qu'elle puisse dessiner le prochain motif (demi-cercle).
+
+```python webtj[autorun, width=100%]
+from gturtle import *
+
+def demi_cercle():
+    repeat 18:
+        forward(10)
+        right(10)
 
 makeTurtle()
 
-def carre():
-    repeat 4:
-        forward(100)
-        right(90)
+repeat 8:
+    demi_cercle()
+    right(180)
+```
 
-carre()
+::: warning Attention
+
+Les plus attentifs auront remarqué que la tortue ne dessine pas vraiment ce qui
+est demandé dans la consigne. On le voit mieux si l'on diminue encore le nombre
+et la taille des côtés.
+
+```python webtj[autorun, width=100%]
+from gturtle import *
+
+def demi_cercle():
+    repeat 9:
+        forward(5)
+        right(20)
+
+def decaler_a_gauche():
+    hideTurtle()
+    penUp()
+    left(90)
+    forward(120)
+    right(90)
+    penDown()
+    showTurtle()
+
+makeTurtle()
+decaler_a_gauche()
+hideTurtle()
+repeat 8:
+    demi_cercle()
+    right(180)
 
 ```
 
-### Partie A
+La raison pour laquelle la tortue monte est assez subtile! Pour bien comprendre
+ce qui se passe, il faut encore diminuer le nombre de segments utilisés pour
+dessiner le demi-cercle et agrandir leur longueur.
 
-salut
+```python webtj[autorun, width=100%]
+from gturtle import *
+
+def demi_cercle():
+    repeat 180 / 30:
+        forward(40)
+        right(30)
+
+
+makeTurtle()
+demi_cercle()
+
+```
+
+Pour que le demi-cercle se dessine correctement, il faut en fait modifier la
+manière de dessiner le demi-cercle. Voyez-vous comment le faire?
+
+Il faut essentiellement répéter le motif
+
+```python
+forward(20)
+right(30)
+forward(20)
+```
+
+au lieu de
+
+```python
+forward(40)
+right(30)
+```
+
+On obtient donc le code suivant pour dessiner le demi-cercle de manière symétrique :
+
+```python webtj[autorun, width=100%]
+from gturtle import *
+
+def demi_cercle():
+    repeat 180 / 30:
+        forward(20)
+        right(30)
+        forward(20)
+
+
+makeTurtle()
+demi_cercle()
+```
+
+:::
+
+En augmentant de nouveau le nombre de côtés, on obtient la forme désirée :
+
+```python webtj[autorun, width=120%]
+from gturtle import *
+
+def demi_cercle():
+    repeat 18:
+        forward(2)
+        right(10)
+        forward(2)
+
+def decaler_a_gauche():
+    hideTurtle()
+    penUp()
+    left(90)
+    forward(120)
+    right(90)
+    penDown()
+    showTurtle()
+
+makeTurtle()
+decaler_a_gauche()
+hideTurtle()
+repeat 8:
+    demi_cercle()
+    right(180)
+```
+
+### Partie B
+
+Il y a plusieurs manières intelligentes de dessiner cette figure. Il s'agit dans
+tous les cas d'identifier les motifs qui se répètent.
+
+Le premier motif consiste à répéter trois carrés :
+
+```python webtj[autorun, width=120%, speed=20]
+from gturtle import *
+
+def carre():
+    repeat 6:
+        forward(50)
+        right(90)
+
+def motif():
+    repeat 3:
+        # dessiner le motif
+        carre()
+        # repositionner la tortue pour dessiner le prochain motif
+        right(180)
+
+setPos(-200,-50)
+makeTurtle()
+motif()
+```
+
+::: tip Remarque
+
+- Pour raccourcir le programme, on se permet de dessiner le carré de manière un
+  peu spéciale, en répétant 6 fois au lieu de 4. Ceci permet de placer la tortue
+  directement au sommet supérieur droit du carré.
+
+- La commande `setPos(x, y)` permet de placer la tortue au pixel de
+  coordonnées $(x, y)$ dans la fenêtre de dessin. Elle permet d'éviter de
+  devoir écrire plein de commandes avec `penUp()`, `penDown()` etc.
+
+- On voit que la commande `carre()` est une sortie de "sous-motif" de la
+  commande `motif()`. La logique pour répéter un motif est toujours la même :
+
+  ```python
+  def dessine_figure():
+      repeat NOMBRE_DE_REPETITIONS:
+          dessine_motif()
+          repositionne_tortue()
+  ```
+
+  :::
+
+La même logique s'applique pour dessiner la figure en entier. Il suffit de faire
+
+```python
+def figure():
+    repeat 2:
+        # répétition du motif
+        motif()
+        # repositionnement de la tortue pour
+        # dessiner le motif suivant
+        right(90)
+        back(50)
+```
+
+Cela donne au final le programme suivant :
+
+```python webtj[autorun, width=120%]
+from gturtle import *
+
+def carre():
+    repeat 6:
+        forward(50)
+        right(90)
+
+def motif():
+    repeat 3:
+        # dessiner le motif
+        carre()
+        # repositionner la tortue pour dessiner le prochain motif
+        right(180)
+
+def figure():
+    repeat 2:
+        # répétition du motif
+        motif()
+        # repositionnement de la tortue pour
+        # dessiner le motif suivant
+        right(90)
+        back(50)
+
+setPos(-200,-50)
+makeTurtle()
+figure()
+```
+
+#### Variante
+
+Il est également possible de dessiner le motif en escalier de la manière
+suivante:
+
+```python webtj[autorun, width=120%, speed=20]
+from gturtle import *
+
+def escalier():
+    repeat 3:
+        back(50)
+        right(90)
+        back(50)
+        left(90)
+
+setPos(0,50)
+makeTurtle()
+escalier()
+right(180)
+```
+
+En répétant deux fois cet escalier avec une rotation de $180°$ entre les deux,
+on obtient à nouveau le motif présenté dans la première version:
+
+```python webtj[autorun, width=120%, speed=20]
+from gturtle import *
+
+def escalier():
+    repeat 3:
+        back(50)
+        right(90)
+        back(50)
+        left(90)
+
+def motif():
+    repeat 2:
+        escalier()
+        right(180)
+
+setPos(0,50)
+makeTurtle()
+motif()
+```
+
+Ce programme est même plus naturel que celui qui utilise le carré comme motif de
+base pour réaliser la commande `motif()`.
+
+### Partie C
+
+Il y a beaucoup de motifs que l'on peut répéter pour obtenir le dessin souhaité.
+Voici les plus évidents:
+
+#### Variante 1
+
+La première variante consiste à répéter une rangée de trois carrés:
+
+![Image](./chapter-03/activity-11-pattern-1.png)
+
+que l'on peut dessiner avec la commande
+
+```python
+def motif():
+    repeat 3:
+        carre()
+        penUp()
+        right(90)
+        forward(2 * 50)
+        left(90)
+        penDown()
+```
+
+La figure entière s'obtient en répétant ce motif deux fois et en dessinant
+encore un carré supplémentaire. Il faut bien évidemment repositionner la tortue
+avec la commande `deplacement()` entre
+
+```python webtj[width=120%, autorun, speed=20]
+from gturtle import *
+
+def carre():
+    repeat 4:
+        forward(50)
+        right(90)
+
+def motif():
+    repeat 3:
+        carre()
+        penUp()
+        right(90)
+        forward(2 * 50)
+        left(90)
+        penDown()
+
+def deplacement():
+    penUp()
+    left(90)
+    forward(7 * 50)
+    right(90)
+    back(100)
+    penDown()
+
+
+def figure():
+    motif()
+    deplacement()
+    motif()
+    carre()
+
+setPos(-100, 0)
+makeTurtle()
+figure()
+```
+
+#### Variante 2
+
+Une deuxième variante consiste à utiliser le motif suivant composé de deux
+carrés "décalés":
+
+![Image](./chapter-03/activity-11-pattern-1.png)
+
+que se dessine avec la commande
+
+```python
+def motif():
+    repeat 2:
+        # sous-motif
+        carre()
+        # repositionnement pour dessiner
+        # le motif suivant
+        penUp()
+        right(180)
+        forward(50)
+        penDown()
+```
+
+Voici un exemple de programme qui dessine la figure en entier:
+
+```python webtj[autorun, speed=20, width=120%]
+from gturtle import *
+
+def carre():
+    repeat 6:
+        forward(50)
+        right(90)
+
+def motif():
+    repeat 2:
+        # sous-motif
+        carre()
+        # repositionnement pour dessiner
+        # le motif suivant
+        penUp()
+        right(180)
+        forward(50)
+        penDown()
+
+def figure():
+    repeat 3:
+        # dessin du motif
+        motif()
+        # repositionnement
+        penUp()
+        back(4 * 50)
+        penDown()
+    # dessin du dernier carré isolé
+    carre()
+
+setPos(-150, -50)
+makeTurtle()
+figure()
+```
+
+::: tip Remarque générale
+
+Vous pouvez constater que les programmes présentés sont bien structurés avec
+différentes commandes. Pour les parties B et C, on a tout d'abord un sous-motif
+`carre()` qui est répété un certain nombre de fois pour former un motif
+`motif()`, également répété un certain nombre de fois pour réaliser la figure
+dans son entier avec la commande `figure()`.
+
+Cette manière de structurer un programme en programmes et sous-programmes est
+l'essence même de la programmation modulaire et constitue une compétence
+fondamentale en programmation. Cela permet d'écrire des programmes plus courts,
+mieux structurés, plus facilement compréhensibles et comportant moins d'erreurs.
+
+:::
+
+## Activité 12 (facultatif)
+
+Aucun corrigé n'est disponible pour cette activité peu importante.
+
+## Activité 13
+
+La raison pour laquelle la commande `carre_plein()` est
+
+```python
+def carre_plein():
+    repeat 99:
+        ligne_epaisse()
+```
+
+et répète ainsi 99 fois `ligne_epaisse()` est que si l'on ne répète
+`ligne_epaisse()` qu'une seule fois, on colorie déjà deux colonnes de pixels
+comme le montre le programme suivant :
+
+```python webtj[autorun, speed=1]
+from gturtle import *
+
+
+def ligne_epaisse():
+    forward(100)
+    right(90)
+    forward(1)
+    right(90)
+    forward(100)
+    right(180)
+
+makeTurtle()
+repeat 1:
+    ligne_epaisse()
+```
+
+À chaque fois que la commande `ligne_epaisse()` est exécutée, une des deux
+colonnes de pixels peinte recouvre en fait une autre colonne de pixels déjà
+peinte précédemment. Donc si l'on appelle `ligne_epaisse()` deux fois de suite,
+il y a trois colonne de pixels peintes. De ce fait, pour colorier $N$ colonnes,
+il faut répéter $N-1$ fois la commande `ligne_epaisse()`.
+
+## Activité 14
+
+```python
+from gturtle import *
+
+def ligne_epaisse():
+    forward(100)
+    right(90)
+    forward(1)
+    right(90)
+    forward(100)
+    right(180)
+
+def carre_plein():
+    repeat 99:
+        ligne_epaisse()
+
+makeTurtle()
+carre_plein()
+```
