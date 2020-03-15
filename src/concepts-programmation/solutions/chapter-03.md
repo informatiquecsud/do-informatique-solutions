@@ -816,9 +816,225 @@ def deplacement():
     forward(30)
     left(90)
 
+setPos(-200, 0)
 makeTurtle()
 repeat 12:
     carre30()
     deplacement()
 
 ```
+
+::: tip Note
+
+La commande `setPos(x, y)` utilisée à la ligne 13 ne sert qu'à centrer l'image
+dans le fenêtre de dessin pour que tout le dessin soit visible lorsque la
+fenêtre est réduite.
+
+:::
+
+## Exercice 3, page 41
+
+L'exercice 3 n'est pas d'une importance capitale dans ce chapitre. Il mêle
+cependant deux manière de répéter du texte:
+
+1.  Utiliser l'instruction `repeat`
+2.  Utiliser l'opérateur `*` qui "multiplie du texte par un nombre" en répétant
+    le texte en question.
+
+Fondamentalement, le programme est équivalent à
+
+```python
+print 5 * "pomme "
+print 5 * "pomme "
+print 5 * "pomme "
+print 2 * "pomme ", "ver ", 2 * "pomme "
+print 5 * "pomme "
+print 5 * "pomme "
+```
+
+::: tip Remarque
+
+Pour bien effectuer cet exercice, il faut procéder petit-à-petit pour chacune des
+commandes.
+
+La commande `print 5 * "pomme "` donne par exemple le résultat
+
+```
+pomme pomme pomme pomme pomme
+```
+
+et la commande `print 2 * "pomme ", "ver ", 2 * "pomme "` est équivalente à la
+commade
+
+```python
+print "pomme pomme ", "ver ", "pomme pomme "
+```
+
+qui donne la sortie
+
+    pomme pomme ver pomme pomme
+
+:::
+
+Le programme dans son ensemble
+
+```python webtj[autorun]
+repeat 3:
+    print 5 * "pomme "
+print 2 * "pomme ", "ver ", 2 * "pomme "
+repeat 2:
+    print 5 * "pomme "
+```
+
+donne donc la sortie
+
+```
+pomme pomme pomme pomme pomme
+pomme pomme pomme pomme pomme
+pomme pomme pomme pomme pomme
+pomme pomme  ver  pomme pomme
+pomme pomme pomme pomme pomme
+pomme pomme pomme pomme pomme
+```
+
+## Exercice 4, page 41
+
+Le motif de base à répéter dans cet exercice est assez évident. Il s'agit d'une
+"branche" du flocon de neige. Pour que l'on puisse facilement dessiner tout le
+flocon de neige en répétant la branche et en tournant de $60°$, il faut que la
+tortue débute et termine la branche au centre du flocon et dans la même
+orientation.
+
+![Image](./chapter-03/exercise-4-pattern-1.png)
+
+::: tip Remarque
+
+Remarquez que la tortue débute et termine le dessin au même endroit, au centre
+du flocon, à savoir en bas de la branche, en regardant dans la même direction.
+Cela permet ensuite de simplement répéter plusieurs fois la commande `branche()`
+depuis le centre du flocon en tournant simplement de $60°$ entre chaque branche.
+
+:::
+
+```python
+def branche():
+    forward(40)
+    left(45)
+    repeat 3:
+        forward(40)
+        back(40)
+        right(45)
+    left(90)
+    back(40)
+```
+
+Voici le programme en entier.
+
+```python webtj[autorun]
+from gturtle import *
+
+def branche():
+    forward(40)
+    left(45)
+    repeat 3:
+        forward(40)
+        back(40)
+        right(45)
+    left(90)
+    back(40)
+
+def flocon():
+    repeat 6:
+        branche()
+        right(60)
+
+makeTurtle()
+flocon()
+```
+
+## Exercice 5
+
+Comme pour l'activité 11, page 37, il faut utiliser le motif suivant pour
+dessiner un demi-cercle si l'on veut qu'il soit symétrique:
+
+```python
+repeat NOMBRE_DE_SEGMENTS:
+    forward(LONGUEUR_SEGMENT / 2)
+    right(180 / NOMBRE_DE_SEGMENTS)
+    forward(LONGUEUR_SEGMENT / 2)
+```
+
+et non le motif
+
+```python
+repeat NOMBRE_DE_SEGMENTS:
+    forward(LONGUEUR_SEGMENT)
+    right(180 / NOMBRE_DE_SEGMENTS)
+```
+
+qui ne donne pas un beau demi-cercle. Le programme complet est donc
+
+```python webtj[autorun]
+from gturtle import *
+
+def demi_cercle_droite():
+    repeat 15:
+        forward(2.5)
+        right(180 / 15)
+        forward(2.5)
+
+def demi_cercle_gauche():
+    repeat 15:
+        forward(2.5)
+        left(180 / 15)
+        forward(2.5)
+
+def grand_cercle():
+    repeat 36:
+        forward(300 / 36)
+        left(360 / 36)
+
+
+def figure():
+    demi_cercle_droite()
+    demi_cercle_gauche()
+    grand_cercle()
+
+makeTurtle()
+figure()
+```
+
+::: tip Remarque
+
+Nous verrons dans le prochain chapitre comment écrire un tel programme de
+manière plus élégante et succincte en n'écrivant qu'une seule commande
+`arc_cercle(angle, perimetre)` qui permet de dessiner tous les arcs de cercles
+qui apparaissent dans ce problème.
+
+:::
+
+## Exercice 6, page 41 (Projet)
+
+::: tip Information
+
+La solution du projet n'est pas donnée sur cette page. Il est important que vous
+fassiez votre maximum pour résoudre ce problème par vous-mêmes. Si vous avez
+l'occasion de travailler ce problème en classe, mettez-vous par deux pour le
+réaliser.
+
+Une solution détaillée sera livrée ultérieurement dans la partie "Travaux pratiques et projets" du site.
+
+:::
+
+## Exercice 7, page 41 (Projet)
+
+::: tip Information
+
+La solution du projet n'est pas donnée sur cette page. Il est important que vous
+fassiez votre maximum pour résoudre ce problème par vous-mêmes. Si vous avez
+l'occasion de travailler ce problème en classe, mettez-vous par deux pour le
+réaliser.
+
+Une solution détaillée sera livrée ultérieurement dans la partie "Travaux pratiques et projets" du site.
+
+:::
