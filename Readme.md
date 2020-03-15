@@ -1,24 +1,34 @@
-# VuePress plugin to write bonus content for the "CS Simply" educational series
+# Matériel supplémentaire pour le cours de DO informatique
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d569ade3-9916-40ce-b496-dce4c10dd6e6/deploy-status)](https://app.netlify.com/sites/admiring-roentgen-62eaec/deploys)
+
+## Administration
+
+Le contenu est pour le moment hébergé sur la plateforme Netlify. Le tableau de
+bord d'administration est sous https://app.netlify.com/sites/admiring-roentgen-62eaec/settings/general.
 
 ## Installation
 
-To get up and running with writing content in Markdown for the book, some
-requirements have to be met.
+Le contenu comme les solutions aux exerices est écrit dans le format Markdown
+avec quelques ajouts supplémentaires qui permettent d'intégrer directement du
+code TigerJython dans le texte.
 
-### Requirements
+### Paquets nécessaires pour écrire du contenu
 
-Install the following packages if not already present on your developement
-machine :
+Veuillez installer les paquets suivants s'ils ne sont pas encore présents sur
+votre machine de développement local.
 
+- un shell bash
+- git
 - NodeJS 12+
 - Yarn
   ```bash
   $ npm install -g yarn
   ```
 
-### Installation steps
+### Procédure d'installation
 
-Once you have all the dependencies installed, do the following :
+Une fois que toutes les Once you have all the dependencies installed, do the following :
 
 1.  Fork the repository in GitLab
 1.  Clone the repo on your developement machine
@@ -179,7 +189,6 @@ present in the option list to be `true`. The order of the options is not importa
 
         makeTurtle()
 
-
-  call by
+call by
 
         makeTurtle() ; speed(20)
