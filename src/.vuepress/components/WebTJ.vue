@@ -50,8 +50,9 @@ export default {
       test: "test data",
       editor: undefined,
       code: this.initialCode,
+      // TODO: quickfix to handle same-origin
       src:
-        window.location.hostname === "localhost"
+        "/webtj/" || window.location.hostname === "localhost"
           ? "/webtj/"
           : "https://webtigerjython.ethz.ch/"
     };
