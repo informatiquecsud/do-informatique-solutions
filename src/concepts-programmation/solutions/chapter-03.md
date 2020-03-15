@@ -783,3 +783,42 @@ Comme l'indique la documentation de WebTigerJython, la commande `setPos(x, y)`
 permet de positionner la tortue à une coordonnée absolue de la fenêtre de
 dessin. Elle est utilisée ici pour que le dessin tienne dans la partie visible
 de la fenêtre mais elle ne change rien au dessin.
+
+:::
+
+## Exercice 2, page 41
+
+La conception modulaire consiste à décomposer le problème en sous-problèmes plus
+simples qu'il est ensuite facile d'assembler pour résoudre le problème dans son
+ensemble. Dans notre cas, la boucle interne `repeat 4:` gagnerait à se trouver
+dans une commande à part qui décrit ce que cette boucle fait. Elle dessine un
+carré. Il vaut donc mieux la placer au sein d'une commande `carre()`
+
+```python
+def carre30():
+    repeat 4:
+        forward(30)
+        right(90)
+```
+
+Cela donne au final le programme suivant bien plus compréhensible:
+
+```python webtj[width=100%, autorun]
+from gturtle import *
+
+def carre30():
+    repeat 4:
+        forward(30)
+        right(90)
+
+def deplacement():
+    right(90)
+    forward(30)
+    left(90)
+
+makeTurtle()
+repeat 12:
+    carre30()
+    deplacement()
+
+```
