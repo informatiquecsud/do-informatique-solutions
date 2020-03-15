@@ -17,7 +17,8 @@
     "build": "vuepress build src",
     "build-no-cache": "vuepress build src --no-cache",
     "export": "vuepress export src",
-    "serve": "vuepress serve src"
+    "serve": "vuepress serve src",
+    "deploy": "yarn build && surge src/.vuepress/dist https://solution.doi.21-learning.surge.sh/"
   },
   "dependencies": {}
 }
