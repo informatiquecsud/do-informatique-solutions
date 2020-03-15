@@ -486,6 +486,19 @@ Aucun corrigé n'est disponible pour cette activité peu importante.
 
 ## Activité 13
 
+::: warning Exercices 13-16
+
+Les exercices 13 à 16 sont facultatifs dans le cadre de ce chapitre. Ils
+pourront être réalisés de manière bien plus efficace en définissant des
+commandes avec paramètres qui permettront de réaliser une seule commande
+permettant de colorier des rectangles de n'importe quelle dimension.
+
+Nous dessinerons l'échiquier de l'exercice 16 de cette manière bien plus
+appropriée au chapitre 4. Pour le moment, vous pouvez donc sans problème ignorer
+les activités 13 à 16 et tout ce qui concerne le coloriage de carrés et de rectangles.
+
+:::
+
 La raison pour laquelle la commande `carre_plein()` est
 
 ```python
@@ -521,9 +534,16 @@ peinte précédemment. Donc si l'on appelle `ligne_epaisse()` deux fois de suite
 il y a trois colonne de pixels peintes. De ce fait, pour colorier $N$ colonnes,
 il faut répéter $N-1$ fois la commande `ligne_epaisse()`.
 
-## Activité 14
+::: tip Discussion (facultatif : optimisation)
 
-```python
+On pourrait évidemment proposer plusieurs optimisations pour réaliser le dessin
+de manière plus efficace.
+
+Modifier la commande `ligne_epaisse()` pour ne pas repasser à chaque fois
+sur chaque colonne de pixels. Pour cela, il suffirait de modifier la
+commande de la manière suivante:
+
+```python webtj[autorun, speed=2]
 from gturtle import *
 
 def ligne_epaisse():
@@ -532,12 +552,234 @@ def ligne_epaisse():
     forward(1)
     right(90)
     forward(100)
+    left(90)
+    forward(1)
+    left(90)
+
+makeTurtle()
+repeat 1:
+    ligne_epaisse()
+```
+
+Le problème avec cette commande est qu'il n'est plus possible de colorier un
+nombre impair de colonnes. En revanche, avec cette variante de la commande
+`ligne_epaisse()`, il suffit de répéter $N/2$ fois la boucle `repeat`. Si l'on
+veut colorier un nombre impair de colonnes, il suffit ensuite peindre
+uniquement la dernière.
+
+```python webtj[autorun, hideTurtle]
+from gturtle import *
+
+def ligne_epaisse_2():
+    forward(100)
+    right(90)
+    forward(1)
+    right(90)
+    forward(100)
+    left(90)
+    forward(1)
+    left(90)
+
+
+def carre_plein():
+    repeat 50:
+        ligne_epaisse_2()
+
+makeTurtle()
+carre_plein()
+```
+
+:::
+
+## Activité 14
+
+La solution est donnée ici sans explication car cet exercice sera de toute
+manière réalisé de manière plus efficace en utilisant les paramètres au
+chapitre. Il faut modifier à la fois la commande `ligne_epaisse()` et le nombre
+de répétitions
+
+```python webtj[autorun, speed=30]
+from gturtle import *
+
+def ligne_epaisse():
+    forward(75) # <= ligne modifiée par rapport à l'exemple 10
+    right(90)
+    forward(1)
+    right(90)
+    forward(75) # <= ligne modifiée par rapport à l'exemple 10
     right(180)
 
 def carre_plein():
-    repeat 99:
+    repeat 74:  # <= ligne modifiée par rapport à l'exemple 10
         ligne_epaisse()
 
 makeTurtle()
 carre_plein()
 ```
+
+## Activité 15 (facultatif)
+
+La solution n'est pas donnée car cet exercice est très similaire au précédent.
+
+## Activité 16 (facultatif)
+
+::: tip Conseil
+
+L'exercice 16 est un projet de plus grande envergure qui vise à assembler tous
+les exercices précédents. Il faut procéder par étapes et identifier les
+différents motifs à répéter qui constituent un échiquier.
+
+Le problème est facultatif car il sera traité de manière plus détaillée et plus
+efficace aux pages 53 à 55 du chapitre 4 sur les commandes avec paramètres.
+
+:::
+
+## Activité 17, page 39 (facultatif)
+
+::: tip Conseil
+
+Le problème 17 est facultatif. Nous allons plutôt entraîner les animations dans
+les projets 6 et 7 à la page 41 du livre.
+
+:::
+
+## Questions de compréhension, page 40
+
+1.  Le mot-clé `repeat` permet de répéter des bouts de programmes sans avoir à
+    faire du copier-coller. Cela permet de respecter le principe DRY de
+    l'informatique.
+
+    ::: tip DRY
+
+    En programmation, principe DRY = Don't Repeat Yoursel est fondamental. Il
+    s'agit en quelque sorte du "premier commandement" de la programmation. Le
+    code ci-dessous pour dessiner un hexagone n'est par exemple pas DRY car il
+    s'obtient par copier-coller.
+
+    ```python
+    forward(50)
+    right(60)
+    forward(50)
+    right(60)
+    forward(50)
+    right(60)
+    forward(50)
+    right(60)
+    forward(50)
+    right(60)
+    forward(50)
+    right(60)
+    ```
+
+    Une manière DRY d'écrire le même code avec la boucle `repeat` est la
+    suivante:
+
+    ```python
+    repeat 6:
+        forward(50)
+        right(60)
+    ```
+
+    :::
+
+    L'utilisation des boucles `repeat` économise donc beaucoup de temps dans les
+    situations suivantes:
+
+    - Dessin de formes qui présentent des régularités (motifs récurrents)
+    - Dessin de polygones réguliers
+    - De manière générale, pour effectuer des actions répétitives
+    - Bien d'autres situations que nous traiterons plus tard, notamment la
+      lecture de données depuis le capteur d'un robot ou d'une carte de
+      développement Oxocard ou la gestion des événements (clavier, souris et
+      autres).
+
+    ::: tip Remarque
+
+    La boucle `repeat` permet uniquement de répéter un bout de code qui est
+    toujours identique. Il exsite en Python encore deux autres types de boucles
+    permettant de répéter des bouts de codes et qui s'utilisent dans des
+    situations différents : la boucle `for` qui permet d'exécuter un programme
+    pour chaque élément d'une liste et la boucle `while` qui permet de répéter
+    un programme tant qu'une condition reste vraie.
+
+    :::
+
+2.  La syntaxe de la boucle `repeat` est la suivante:
+
+    ```python
+    repeat NOMBRE_DE_REPETITIONS:
+        corps_de_la_boucle()
+    ```
+
+3.  Le **corps** de la boucle est décalé par rapport au `repeat` et indique ce
+    qui doit être répété. Le **corps** de la boucle doit être décalé par rapport à l'**en-tête** de la
+    boucle.
+
+4.  Pour dessiner des animations, il faut dessiner et effacer successivement et
+    un grand nombre de fois une forme qui se déplace légèrement d'une fois à
+    l'autre. Sans les boucles, il faudrait recopier des centaines de lignes de
+    code qui peuvent simplement être répétées avec la boucle `repeat`.
+    `
+5.  Oui, il est tout-à-fait possible d'utiliser une boucle `repeat` dans le
+    corps d'une autre boucle `repeat`. On parle dans ce cas de **boucle
+    imbriquée**. L'exemple 7 à la page 36 montre un bon exemple de boucle
+    imbriquée.
+
+6.  Bien qu'il soit possible d'imbriquer les boucles les unes dans les autres,
+    il vaut généralement la peine d'inclure la boucle imbriquée dans une
+    commande qui lui est propre. Cette commande pourra ensuite être utilisée
+    dans le corps de la boucle `repeat` principale. Cela permet de rendre le
+    programme plus compréhenisble.
+
+    L'exemple 8 fait la même chose que l'exemple 7 mais il est bien plus
+    compréhensible car la boucle interne est insérée dans la commande
+    `quart_cercle()`
+
+7.  Non. Mathématiquement, on peut définir un cercle comme la limite lorsque $N
+    \to \infty$ (Prononcer "lorsque $N$ tend vers l'infini") d'un polygone
+    régulier à $N$ côté. Dit plus simplement pour le commun des mortels, un
+    cercle est un polygone régulier possédant "une infinité de côtés". Le
+    problème est qu'il est absolument impossible de stocker une infinité de
+    choses dans un ordinateur ni d'ailleurs de lui faire faire une infinité de
+    choses. L'ordinateur peut donc au mieux dessiner de manière
+    **approximative** un cercle par un polygone régulier à $N$ côtés.
+
+8.  Plus le nombre de côtés du polygone régulier est grand, plus il ressemblera
+    à un cercle mais plus cela demandera de travail à l'ordinateur. Puisque
+    l'oeil humain a des capacités finies également et que l'écran de
+    l'ordinateur ne possède de toute manière qu'un nombre limité de pixels, on
+    pourra généralement se contenter de dessiner un cercle par un polygone
+    régulier de 36 côtés. Cela dépend toutefois du rayon du cercle. Plus le
+    rayon du cercle est grand, plus le nombre de côtés nécessaire sera élevé
+    pour que les côtés ne puissent pas être distingués à l'oeil.
+
+## Exercice 1, page 41
+
+Pour répondre à la question sans ordinateur il faut se munir d'une feuille de
+papier et d'un crayon en faisant attention aux éléments suivants:
+
+- Où se trouve la tortue avant et après l'exécution d'un bout de code (par
+  exemple avant et après chaque répétition de la boucle `repeat 4`)
+
+- Il faut aussi faire bien attention à l'orientation de la tortue avant et après
+  un dessin.
+
+```python webtj[autorun, speed=20]
+from gturtle import *
+makeTurtle()
+setPos(-200, 0)
+repeat 12:
+    repeat 4:
+        forward(30)
+        right(90)
+    right(90)
+    forward(30)
+    left(90)
+```
+
+::: warning Commande setPos(x,y)
+
+Comme l'indique la documentation de WebTigerJython, la commande `setPos(x, y)`
+permet de positionner la tortue à une coordonnée absolue de la fenêtre de
+dessin. Elle est utilisée ici pour que le dessin tienne dans la partie visible
+de la fenêtre mais elle ne change rien au dessin.
