@@ -2,6 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d569ade3-9916-40ce-b496-dce4c10dd6e6/deploy-status)](https://app.netlify.com/sites/admiring-roentgen-62eaec/deploys)
 
+Version en ligne du site : https://doi.21-learning.com/
+
 ## Administration
 
 Le contenu est pour le moment hébergé sur la plateforme Netlify. Le tableau de
