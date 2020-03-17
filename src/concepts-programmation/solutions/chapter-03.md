@@ -139,31 +139,234 @@ avant de commencer le dessin.
 
 ## Activité 4
 
-Ce corrigé n'est pas encore disponible.
+Uniquement le corrigé du premier est donné. Vous remarquerez que l'on définit
+deux commandes différentes, `marche()` et `escalier()` pour bien décomposer le
+problème et rendre le programme plus clair.
+
+```python webtj[autorun]
+from gturtle import *
+
+def marche():
+    forward(25)
+    right(90)
+    forward(25)
+    left(90)
+
+def escalierA():
+    repeat 10:
+        marche()
+
+setPos(-100, -130)
+makeTurtle()
+escalierA()
+```
+
+::: tip Remarque
+
+La commande `setPos()` est facultative et ne sert qu'à positionner la tortue
+correctement avant d'effectuer le dessin pour que l'escalier soit visible en
+entier dans la fenêtre de dessin.
+
+:::
 
 ## Activité 5
 
-Ce corrigé n'est pas encore disponible.
+Le programme à modifier est le suivant:
+
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def cercle_2():
+    repeat 360:
+        forward(2)
+        right(360 / 360)
+
+setPos(-150, 0)
+makeTurtle()
+cercle_2()
+```
+
+Il ne suffit pas de diminuer le nombre de répétitions de la boucle. Il faut
+encore que le programme dessine toujours le même cercle. Pour cela, il faut
+respecter les conditions suivantes:
+
+- Le périmètre doit être le même
+
+  $$
+  \mathrm{nombre\, de\, répétitions\,\cdot\,longueur\, des\, côtés}
+  =
+  360 \cdot 2 = 720 = 36 \cdot 20
+  $$
+
+- L'angle total doit être le même
+
+  $$
+  \mathrm{nombre\, de\, répétitions\,\cdot\,angle\, de\, rotation}
+  =
+  360 \cdot 1° = 360° = 36 \cdot 10°
+  $$
+
+On obtient donc le programme suivant :
+
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def cercle_2():
+    repeat 36:
+        forward(20)
+        right(10)
+
+setPos(-150, 0)
+makeTurtle()
+cercle_2()
+```
+
+::: tip Remarque : performances
+
+Vous remarquez que le programme est ainsi bien plus performant car il fait dix
+fois moins d'opérations. Il n'y a cependant presque aucune différence
+perceptible à l'écran.
+
+:::
 
 ## Activité 6
 
-Ce corrigé n'est pas encore disponible.
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def cercle_2():
+    repeat 36:
+        forward(20)
+        right(10)
+    print "périmètre du cercle :", 36 * 20
+
+setPos(-150, 0)
+makeTurtle()
+cercle_2()
+```
 
 ## Activité 7
 
-Ce corrigé n'est pas encore disponible.
+Il suffit de modifier le nombre de répétitions et répéter 180 fois au lieu de 360.
 
 ## Activité 8
 
-Ce corrigé n'est pas encore disponible.
+Pour cet exercice, reprenons le code de l'activité 5 qui est plus performant que
+celui de l'exemple 5. Il suffit de diviser par 4 le nombre de répétitions en ne
+changeant pas le reste.
+
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def cercle360():
+    repeat 36:
+        forward(10)
+        right(10)
+
+def cercle720():
+    repeat 36:
+        forward(20)
+        right(10)
+
+def cercle1440():
+    repeat 36:
+        forward(40)
+        right(10)
+
+
+setPos(-150, 0)
+makeTurtle()
+cercle360()
+cercle720()
+cercle1440()
+```
+
+::: tip Remarque
+
+Au chapitre 4, nous verrons comment passer des paramètres aux fonctions pour
+éviter de devoir écrire 3 fois la même commande pour faire presque la même
+chose, ce qui simplifie beaucoup le programme.
+
+:::
 
 ## Activité 9
 
-Ce corrigé n'est pas encore disponible.
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def quart_de_cercle():
+    repeat 9:
+        forward(20)
+        right(10)
+
+def cercle():
+    setPenColor("yellow")
+    quart_de_cercle()
+    setPenColor("red")
+    quart_de_cercle()
+    setPenColor("blue")
+    quart_de_cercle()
+    setPenColor("green")
+    quart_de_cercle()
+
+setPos(-150, 0)
+makeTurtle()
+cercle()
+```
 
 ## Activité 10
 
-Ce corrigé n'est pas encore disponible.
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def tiers_de_cercle():
+    repeat 12:
+        forward(25)
+        right(10)
+
+def petale():
+    tiers_de_cercle()
+    right(60)
+    tiers_de_cercle()
+    right(60)
+
+def fleur():
+    repeat 9:
+        petale()
+        right(360 / 9)
+
+makeTurtle()
+fleur()
+```
+
+On voit par contre que la fleur n'est pas vraiment orientée comme sur la
+consigne, avec le premier pétale bien à la verticale. Pour remédier à cela, il
+suffit de tourner le tortue un peu vers la gauche avant de commencer le dessin.
+
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+def tiers_de_cercle():
+    repeat 12:
+        forward(25)
+        right(10)
+
+def petale():
+    tiers_de_cercle()
+    right(60)
+    tiers_de_cercle()
+    right(60)
+
+def fleur():
+    repeat 9:
+        petale()
+        right(360 / 9)
+
+makeTurtle()
+left(60)
+fleur()
+right(60)
+```
 
 ## Activité 11
 
