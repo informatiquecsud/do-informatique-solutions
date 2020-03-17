@@ -952,7 +952,7 @@ makeTurtle()
 flocon()
 ```
 
-## Exercice 5
+## Exercice 5, page 41
 
 Comme pour l'activité 11, page 37, il faut utiliser le motif suivant pour
 dessiner un demi-cercle si l'on veut qu'il soit symétrique:
@@ -1038,3 +1038,4 @@ réaliser.
 Une solution détaillée sera livrée ultérieurement dans la partie "Travaux pratiques et projets" du site.
 
 :::
+
