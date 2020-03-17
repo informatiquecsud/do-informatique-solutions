@@ -1,4 +1,3 @@
-
 # Musterlösungen zum Kapitel 1
 
 ## Test WebTigerJython
