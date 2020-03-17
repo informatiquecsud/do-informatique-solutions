@@ -1,28 +1,169 @@
 # Solutions du chapitre 3
 
-## Activités 1
+## Activité 1
+
+Cet exercice est relativement simple. Il suffit de reprendre l'exemple 4 de la
+page 8 en utilisant une boucle `repeat` au lieu de faire du copier-coller pour
+dessiner chaque côté du polygone.
+
+On obtient alors
+
+```python webtj[autorun]
+from gturtle import *
+
+makeTurtle()
+
+repeat 11:
+    forward(50)
+    right(360 / 11)
+```
+
+Pour faire un polygone à 15 côtés de longueur 30, c'est presque le même
+programme en modifiant juste le nombre de répétitions et le paramètre du
+`forward`:
+
+```python webtj[autorun]
+from gturtle import *
+
+makeTurtle()
+
+repeat 15:
+    forward(30)
+    right(360 / 15)
+```
+
+Pour le dernier, c'est le même refrain
+
+```python webtj[autorun]
+from gturtle import *
+
+makeTurtle()
+
+repeat 7:
+    forward(100)
+    right(360 / 7)
+```
+
+## Activité 2
+
+### Partie A
+
+```python webtj[autorun]
+from gturtle import *
+
+def etoile_100():
+    repeat 16:
+        forward(100)
+        back(100)
+        right(360 / 16)
+
+makeTurtle()
+etoile_100()
+```
+
+### Partie B
+
+```python webtj[autorun, speed=30]
+from gturtle import *
+
+def etoile_100():
+    repeat 360:
+        forward(100)
+        back(100)
+        right(360 / 360)
+
+makeTurtle()
+etoile_100()
+```
 
 ::: tip Remarque
 
-Ce corrigé n'est pas encore disponible
+Vous pouvez remarquer que le dessin d'une étoile à 360 branches permet en fait
+de colorier un disque plein. Pour que cela ressemble vraiment à un disque, il
+faut augmenter un peu l'épaisseur du trait avec `setPenColor(2)`. On peut aussi
+peindre le disque en rouge avec `setPenColor("red")` et accélérer le dessin avec
+`hideTurtle()`:
+
+```python webtj[autorun, speed=30]
+from gturtle import *
+
+def etoile_100():
+    setPenColor("red")
+    setPenWidth(2)
+    repeat 360:
+        forward(100)
+        back(100)
+        right(360 / 360)
+
+makeTurtle()
+hideTurtle()
+etoile_100()
+```
+
+Vous utiliserez cette technique pour réaliser une animation d'un système solaire
+à l'exercice 6, page 41, en fin de chapitre.
 
 :::
 
-## Activités 2
+## Activité 3
+
+On sait que la tortue doit tourner de $144°$ à chaque sommet car elle fait deux
+tours complets sur elle-même pour dessiner toute l'étoile. Pour vous en
+convaincre, il vous suffit de dessiner l'étoile à la main. Elle doit donc
+tourner à chaque sommet de $\frac{2 \cdot 360°}{5} = \frac{720°}{5} = 144°$.
+
+Pour que l'étoile soit bien orientée, il suffit de commencer par tourner de
+$90°$ à droite pour partir à l'horizontale.
+
+```python webtj[autorun]
+from gturtle import *
+
+def etoile_5_branches():
+    repeat 5:
+        forward(150)
+        right(144)
+
+makeTurtle()
+right(90)
+etoile_5_branches()
+```
 
 ::: tip Remarque
 
-Ce corrigé n'est pas encore disponible
+Notez que la commande `right(90)` ne se trouve pas dans la commande
+`etoile_5_branches()` car elle ne fait pas partie du dessin de l'étoile à
+proprement parler. Elle a pour unique vocation d'orienter la tortue correctement
+avant de commencer le dessin.
 
 :::
 
-## Activités 3
+## Activité 4
 
-::: tip Remarque
+Ce corrigé n'est pas encore disponible.
 
-Ce corrigé n'est pas encore disponible
+## Activité 5
 
-:::
+Ce corrigé n'est pas encore disponible.
+
+## Activité 6
+
+Ce corrigé n'est pas encore disponible.
+
+## Activité 7
+
+Ce corrigé n'est pas encore disponible.
+
+## Activité 8
+
+Ce corrigé n'est pas encore disponible.
+
+## Activité 9
+
+Ce corrigé n'est pas encore disponible.
+
+## Activité 10
+
+Ce corrigé n'est pas encore disponible.
 
 ## Activité 11
 
@@ -1038,4 +1179,3 @@ réaliser.
 Une solution détaillée sera livrée ultérieurement dans la partie "Travaux pratiques et projets" du site.
 
 :::
-
