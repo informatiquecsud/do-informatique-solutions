@@ -1,0 +1,9 @@
+tasks:
+  - init: yarn install && yarn run build
+    command: yarn run dev
+
+vscode:
+  extensions:
+    - DavidAnson.vscode-markdownlint@0.34.0:l4DL7iPpo7DdhfUHIUtcuQ==
+    - mrmlnc.vscode-remark@1.2.0:y8MYgmXLm1hnmIUYfk+/1A==
+    - stkb.rewrap@1.9.1:uVwX3e+4wLnv3SfVh1ndng==
