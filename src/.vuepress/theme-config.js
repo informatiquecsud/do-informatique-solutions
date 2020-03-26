@@ -9,7 +9,7 @@ module.exports = {
           ariaLabel: "Menu de solution des exercices",
           items: [1, 2, 3, 4, 5].map(chapterNo => ({
             text: `Chapitre ${chapterNo}`,
-            link: `concepts-programmation/solutions/chapter-0${chapterNo}`
+            link: `/concepts-programmation/solutions/chapter-0${chapterNo}`
           }))
         }
       ]
