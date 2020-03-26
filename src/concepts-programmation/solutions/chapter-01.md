@@ -8,5 +8,4 @@
 Les solutions détaillées des exercices du chapitre 1 se sont pas  disponibles pour
 le moment car elles ne sont pas prioritaires.
 
-
 :::

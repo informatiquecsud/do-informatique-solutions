@@ -1,5 +1,9 @@
 # Solutions du chapitre 4
 
+## Table des matières
+
+[[toc]]
+
 ## Activité 1, page 44
 
 Il suffit d'appeler la commande `carre(cote)` en fournissant les différentes
@@ -199,6 +203,228 @@ triangle_couleur("red", 100)
 ```
 
 :::
+
+## Activité 9, page 50
+
+::: danger Attention
+
+Pour le moment, il ne faut pas effectuer cette activité. Elle doit encore
+adaptée à la présentation faite sur le site. Cet exercice va probablement être
+supprimé.
+
+::: 
+
+## Activité 10, page 52
+
+On commence par définir la commande `carre(cote)` pour dessiner un carré de côté
+`cote`. Cette commande est ensuite utilisée pour réaliser la commande
+`rangee(cote, nb_carres)`. On définit également une commande 
+
+```python
+def va_a_droite(distance):
+    right(90)
+    forward(distance)
+    left(90)
+```
+
+pour repositonner la tortue après chaque carré.
+
+
+```python webtj[autorun, speed=10]
+from gturtle import *
+
+#dessine un carre
+def carre(cote):
+    repeat 4:
+        forward(cote)
+        right(90)
+
+def va_a_droite(distance):
+    right(90)
+    forward(distance)
+    left(90)
+
+#utilise la commande carre pour dessiner plusieurs carres pour former une rangée 
+def rangee(cote, nb_carres):
+    repeat nb_carres:
+        carre(cote)
+        va_a_droite(cote)
+
+makeTurtle()
+setPos(-200, 0)
+#hideTurtle()
+
+rangee(15, 24)
+```
+## Activité 11, page 52
+
+Pour réaliser cet exercice, il s'agit de réutiliser la commande `rangee(cote,
+nb_carres)` définie dans l'activité précédente.
+
+::: tip Remarques
+
+*   Pour coder de manière plus propre, vous pouvez légèrement modifier la consigne
+    pour que la commande `grille` prenne encore un paramètre additionnel `cote`. Il
+    n'y a pas de raison de faire une commande qui ne puisse dessiner que des carrés
+    de 10 de côté. Cela rend simplement la commande plus flexible.
+
+*   Pour repositonner la tortue après le dessin d'une rangée, on définit une
+    commande `va_a_gauche(distance)` qui ne fait rien d'autre que d'utiliser la
+    commande `va_a_droite(distance)` déjà programmée dans l'activité précédente.
+
+:::
+
+```python webtj[autorun, speed=10, hideTurtle]
+from gturtle import *
+
+def carre(cote):
+    repeat 4:
+        forward(cote)
+        right(90)
+
+def va_a_droite(distance):
+    right(90)
+    forward(distance)
+    left(90)
+
+def va_a_gauche(distance):
+    va_a_droite(-distance)
+
+def rangee(cote, nb_carres):
+    repeat nb_carres:
+        carre(cote)
+        va_a_droite(cote)
+
+def grille(nb_colonnes, nb_rangees, cote):
+    repeat nb_colonnes:
+        rangee(cote, nb_rangees)
+        va_a_gauche(nb_rangees * cote)
+        back(cote)
+
+makeTurtle()
+setPos(-200, 200)
+#hideTurtle()
+
+grille(5, 9, 20)
+```
+
+## Activité 12, page 53
+
+Le programme n'est pas très difficile à réaliser. Ce qui est très important,
+c'est que la tortue se trouve dans la même position au début et à la fin du
+dessin de la flèche. Cela permet de mieux utiliser cette commande pour réaliser
+des dessins plus complexes par la suite.
+
+::: tip Bonne pratique
+
+*   Même si la donnée nomme la longueur des segments `x`, c'est plus pour faciliter
+    le schéma. Lorsqu'on programme, on préférera néanmoins des noms
+    significatifs et descriptifs tels que `mesure_segment`.
+
+*   Veillez à bien laisser des espaces entre les opérateurs et les opérandes
+    dans les opérations arithmétiques. On préfère donc écrire `right(180 -
+    angle)` que `right(180-angle)`.
+:::
+
+```python webtj[autorun]
+from gturtle import *
+
+def fleche(mesure_segment, angle):
+    forward(mesure_segment)
+    right(180 - angle)
+    forward(mesure_segment)
+    back(mesure_segment)
+    right(2 * angle)
+    forward(mesure_segment)
+    back(mesure_segment)
+    right(180 - angle)
+    back(mesure_segment)
+
+
+
+makeTurtle()
+fleche(100, 45)
+```
+
+::: tip Bonne pratique 
+
+Bien que la commande `fleche` soit de toute évidence appelée à être réutilisée
+dans l'exercice suivant et qu'il serait plus pratique que la tortue termine sa
+course à la pointe de la flèche, il vaut mieux tout de même la ramener à sa
+position originale pour ne pas déroger à la règle.
+
+Le principe de conception est le suivant : lorsqu'on définit une commande, on ne
+sait en principe pas à l'avance à quoi elle va servir. Le but étant de définir
+une commande une fois pour la réutilisewqr un grand nombre de fois dans des
+contextes très différents, il faudrait éviter de la définir en fonction d'un
+usage particulier.
+
+La fonction `fleche` pourrait par exemple servir à réaliser la figure
+ci-dessous:
+
+```python webtj[autorun]
+from gturtle import *
+
+def fleche(mesure_segment, angle):
+    forward(mesure_segment)
+    right(180 - angle)
+    forward(mesure_segment)
+    back(mesure_segment)
+    right(2 * angle)
+    forward(mesure_segment)
+    back(mesure_segment)
+    right(180 - angle)
+    back(mesure_segment)
+
+
+makeTurtle()
+repeat 4:
+    forward(50)
+    fleche(100, 45)
+    back(50)
+    right(90)
+```
+
+Il est dans ce cas bien plus pratique que la tortue revienne à sa position de départ
+plutôt que de rester à la pointe de la flèche.
+
+:::
+
+
+## Activité 13, page 53
+
+Le plus important pour réaliser cet exercice est de réutiliser la commande de
+l'exercice précédent **sans la modifier**.
+
+```python webtj[autorun]
+from gturtle import *
+
+def fleche(mesure_segment, angle):
+    forward(mesure_segment)
+    right(180 - angle)
+    forward(mesure_segment)
+    back(mesure_segment)
+    right(2 * angle)
+    forward(mesure_segment)
+    back(mesure_segment)
+    right(180 - angle)
+    back(mesure_segment)
+
+def sapin(taille, diminution, angle):
+    fleche(100, angle)
+    forward(100)
+    fleche(90, angle)
+    forward(90)
+    fleche(80, angle)
+    forward(80)
+
+makeTurtle()
+
+setPos(0, -150)
+sapin(100, 10, 36)
+```
+
+
 
 ## Exercice 1, page 57
 
