@@ -318,14 +318,14 @@ des dessins plus complexes par la suite.
 
 ::: tip Bonne pratique
 
--   Même si la donnée nomme la longueur des segments `x`, c'est plus pour faciliter
-      le schéma. Lorsqu'on programme, on préférera néanmoins des noms
-      significatifs et descriptifs tels que `mesure_segment`.
+*   Même si la donnée nomme la longueur des segments `x`, c'est plus pour faciliter
+    le schéma. Lorsqu'on programme, on préférera néanmoins des noms
+    significatifs et descriptifs tels que `mesure_segment`.
 
--   Veillez à bien laisser des espaces entre les opérateurs et les opérandes
-        dans les opérations arithmétiques. On préfère donc écrire `right(180 -
-        angle)` que `right(180-angle)`.
-    :::
+*   Veillez à bien laisser des espaces entre les opérateurs et les opérandes
+    dans les opérations arithmétiques. On préfère donc écrire `right(180 -
+    angle)` que `right(180-angle)`.
+
 
 ```python webtj[autorun]
 from gturtle import *
@@ -342,12 +342,9 @@ def fleche(mesure_segment, angle):
     back(mesure_segment)
 
 
-
 makeTurtle()
 fleche(100, 45)
 ```
-
-::: tip Bonne pratique
 
 Bien que la commande `fleche` soit de toute évidence appelée à être réutilisée
 dans l'exercice suivant et qu'il serait plus pratique que la tortue termine sa
