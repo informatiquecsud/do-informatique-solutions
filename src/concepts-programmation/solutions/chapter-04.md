@@ -27,7 +27,6 @@ carre(200)
 
 ## Activité 2, page 45
 
-
 La commande `hexagone` vous est maintenant bien familière. Il suffit de
 reprendre le code de l'activité 1, page 32 en rajoutant un paramètre `cote` qui
 indique la longueur des côtés.
@@ -52,7 +51,7 @@ Comme la commande doit être capable de dessiner n'importe quel polygone
 régulier, il faut qu'elle prenne le nombre de côtés en paramètre. Appelons ce
 paramètre `nombre_cotes`:
 
-```python webtj[autorun]
+```python webtj[autorun, width=120%]
 
 from gturtle import *
 
@@ -68,10 +67,9 @@ polygone(5)
 polygone(8)
 ```
 
-
 ## Activité 4, page 46 (facultatif)
 
-```python webtj[autorun]
+```python webtj[autorun, width=120%]
 
 from gturtle import *
 
@@ -108,7 +106,8 @@ en le redessinant dans la même couleur que le fond.
 Par exemple, pour l'animation des planètes, on aurait pu définir une commande
 `dessine_terre(rayon, couleur)` de la manière suivante:
 
-```python webtj[autorun]
+```python webtj[width=120%, autorun]
+
 from gturtle import *
 
 def dessine_terre(rayon, couleur):
@@ -142,7 +141,8 @@ repeat:
 
 ## Activité 6, page 48
 
-```python webtj[autorun, speed=4]
+```python webtj[width=120%, autorun, speed=4]
+
 from gturtle import *
 
 #dessine un escalier d'une longueur donnée, d'une hauteur donnée, et d'un certain nombre de marche donné
@@ -152,13 +152,14 @@ def escalier(longueur, hauteur, nombre_marches):
         right(90)
         forward(longueur)
         left(90)
-        
+
 setPos(-150, -100)
 makeTurtle()
 escalier(21, 16, 8)
 ```
 
-#Dessine un escalier de huit marches ayant une hauteur de 16 et une longueur de 21
+# Dessine un escalier de huit marches ayant une hauteur de 16 et une longueur de 21
+
 escalier(21, 16, 8)
 
 ## Activité 7, page 48
@@ -171,7 +172,7 @@ def triangle_couleur(s, f):
     repeat 3:
         forward(s)
         left(360 / 3)
-        
+
 makeTurtle()
 triangle_couleur("red", 100)
 ```
@@ -197,7 +198,7 @@ def triangle_couleur(longueur_cote, couleur):
     repeat 3:
         forward(longueur_cote)
         left(360 / 3)
-        
+
 makeTurtle()
 triangle_couleur("red", 100)
 ```
@@ -212,13 +213,13 @@ Pour le moment, il ne faut pas effectuer cette activité. Elle doit encore
 adaptée à la présentation faite sur le site. Cet exercice va probablement être
 supprimé.
 
-::: 
+:::
 
 ## Activité 10, page 52
 
 On commence par définir la commande `carre(cote)` pour dessiner un carré de côté
 `cote`. Cette commande est ensuite utilisée pour réaliser la commande
-`rangee(cote, nb_carres)`. On définit également une commande 
+`rangee(cote, nb_carres)`. On définit également une commande
 
 ```python
 def va_a_droite(distance):
@@ -228,7 +229,6 @@ def va_a_droite(distance):
 ```
 
 pour repositonner la tortue après chaque carré.
-
 
 ```python webtj[autorun, speed=10]
 from gturtle import *
@@ -244,7 +244,7 @@ def va_a_droite(distance):
     forward(distance)
     left(90)
 
-#utilise la commande carre pour dessiner plusieurs carres pour former une rangée 
+#utilise la commande carre pour dessiner plusieurs carres pour former une rangée
 def rangee(cote, nb_carres):
     repeat nb_carres:
         carre(cote)
@@ -256,6 +256,7 @@ setPos(-200, 0)
 
 rangee(15, 24)
 ```
+
 ## Activité 11, page 52
 
 Pour réaliser cet exercice, il s'agit de réutiliser la commande `rangee(cote,
@@ -263,14 +264,14 @@ nb_carres)` définie dans l'activité précédente.
 
 ::: tip Remarques
 
-*   Pour coder de manière plus propre, vous pouvez légèrement modifier la consigne
-    pour que la commande `grille` prenne encore un paramètre additionnel `cote`. Il
-    n'y a pas de raison de faire une commande qui ne puisse dessiner que des carrés
-    de 10 de côté. Cela rend simplement la commande plus flexible.
+-   Pour coder de manière plus propre, vous pouvez légèrement modifier la consigne
+      pour que la commande `grille` prenne encore un paramètre additionnel `cote`. Il
+      n'y a pas de raison de faire une commande qui ne puisse dessiner que des carrés
+      de 10 de côté. Cela rend simplement la commande plus flexible.
 
-*   Pour repositonner la tortue après le dessin d'une rangée, on définit une
-    commande `va_a_gauche(distance)` qui ne fait rien d'autre que d'utiliser la
-    commande `va_a_droite(distance)` déjà programmée dans l'activité précédente.
+-   Pour repositonner la tortue après le dessin d'une rangée, on définit une
+      commande `va_a_gauche(distance)` qui ne fait rien d'autre que d'utiliser la
+      commande `va_a_droite(distance)` déjà programmée dans l'activité précédente.
 
 :::
 
@@ -317,14 +318,14 @@ des dessins plus complexes par la suite.
 
 ::: tip Bonne pratique
 
-*   Même si la donnée nomme la longueur des segments `x`, c'est plus pour faciliter
-    le schéma. Lorsqu'on programme, on préférera néanmoins des noms
-    significatifs et descriptifs tels que `mesure_segment`.
+-   Même si la donnée nomme la longueur des segments `x`, c'est plus pour faciliter
+      le schéma. Lorsqu'on programme, on préférera néanmoins des noms
+      significatifs et descriptifs tels que `mesure_segment`.
 
-*   Veillez à bien laisser des espaces entre les opérateurs et les opérandes
-    dans les opérations arithmétiques. On préfère donc écrire `right(180 -
-    angle)` que `right(180-angle)`.
-:::
+-   Veillez à bien laisser des espaces entre les opérateurs et les opérandes
+        dans les opérations arithmétiques. On préfère donc écrire `right(180 -
+        angle)` que `right(180-angle)`.
+    :::
 
 ```python webtj[autorun]
 from gturtle import *
@@ -346,7 +347,7 @@ makeTurtle()
 fleche(100, 45)
 ```
 
-::: tip Bonne pratique 
+::: tip Bonne pratique
 
 Bien que la commande `fleche` soit de toute évidence appelée à être réutilisée
 dans l'exercice suivant et qu'il serait plus pratique que la tortue termine sa
@@ -390,7 +391,6 @@ plutôt que de rester à la pointe de la flèche.
 
 :::
 
-
 ## Activité 13, page 53
 
 Le plus important pour réaliser cet exercice est de réutiliser la commande de
@@ -424,13 +424,61 @@ setPos(0, -150)
 sapin(100, 10, 36)
 ```
 
+## Activité 14, page 53
 
+Au lieu d'utiliser la technique décrite à la page 38 pour dessiner des carrés
+pleins, on utiliser ici une technique plus simple qui demande moins de
+bricolage. La fonction `carre_couleur(cote, couleur)` est ainsi plus naturelle,
+plus facilement compréhensible et plus facilement utilisable.
+
+```python webtj[autorun, width=130%]
+from gturtle import *
+
+
+def carre_couleur(cote, couleur):
+    setPenColor(couleur)
+    repeat cote:
+        forward(cote)
+        back(cote)
+        penUp()
+        right(90)
+        forward(1)
+        left(90)
+        penDown()
+
+# repositionnement pour dessiner le carré suivant
+def repositionnement(cote):
+    penUp()
+    # on avance d'un pas de plus pour éviter
+    # un chevauchement sur le dernier pas du carré
+    forward(cote + 1)
+    left(90)
+    # on déplace la tortue sur le coin supérieur gauche du carré
+    forward(cote)
+    right(90)
+    penDown()
+
+
+# création de la pile
+def pile(cote, couleur1, couleur2):
+    repeat 3:
+        carre_couleur(40, couleur1)
+        repositionnement(cote)
+        carre_couleur(40, couleur2)
+        repositionnement(cote)
+
+makeTurtle()
+hideTurtle()
+setPos(0, -100)
+pile(40, "red", "yellow")
+
+```
 
 ## Exercice 1, page 57
 
 Pour réaliser cet exercice, il faut utiliser la conception modulaire. Il y a
 plusieurs stratégies différentes se faire une idée de la manière de décomposer
-le problème. 
+le problème.
 
 ::: tip Stratégie de résolution de problème
 
@@ -438,7 +486,7 @@ On peut utiliser une approche "top-down" dans laquelle on commence par
 développer la commande `double_escalier(nombres_marches)` ou une approche
 "bottom-up" où l'on commence par les plus petites briques (la commande
 `marche()`). L'une comme l'autre fonctionne très bien mais il se peut que l'une
-d'elle vous convienne mieux. 
+d'elle vous convienne mieux.
 
 On peut même d'une certaine manière utiliser ces deux approches. Pour
 conceptualiser le problème, on peut par exemple utiliser la méthode "top-down".
@@ -456,7 +504,7 @@ base.
 
 1.  On voit que pour dessiner l'escalier dans son entier, il faut définir une
     commande `double_escalier(nombre_marches)` permettant de dessiner l'escalier
-    dans son ensemble. Cette commande ressemblera à quelque chose comme 
+    dans son ensemble. Cette commande ressemblera à quelque chose comme
 
     ```python
     def double_escalier(nombre_marches):
@@ -495,7 +543,7 @@ base.
 Maintenant que l'approche top-down nous a permis de déterminer les commandes à
 définir, on peut utiliser l'approche "bottom-up" pour partir de la plus petite
 brique de base (la commande `escalier`) pour aller vers des briques toujours
-plus grosses. 
+plus grosses.
 
 ::: tip Conseil
 
@@ -516,7 +564,7 @@ def marche(hauteur, largeur):
     right(90)
     forward(largeur)
     left(90)
-    
+
 
 makeTurtle()
 marche(50, 20)
@@ -539,8 +587,8 @@ def marche(hauteur, largeur):
 def escalier(nombre_marches, hauteur, largeur):
     repeat nombre_marches:
         marche(hauteur / nombre_marches, largeur / nombre_marches)
-    
-    
+
+
 
 makeTurtle()
 setPos(-200, -100)
@@ -556,8 +604,8 @@ forward(300)
 Maintenant que l'on sait que la commande `escalier` fonctionne correctement à
 cause du test (ligne orange), on peut dessiner l'escalier dans son entier avec
 la commande `double_escalier`. Pour que le double escalier fasse bien 500 de
-large et 200 de haut, il faut dessiner deux escaliers de largeur 
-$\frac{500}{2} = 250$ et de hauteur identique $200$:
+large et 200 de haut, il faut dessiner deux escaliers de largeur
+$frac{500}{2} = 250$ et de hauteur identique $200$:
 
 ::: warning Astuce
 
@@ -565,7 +613,7 @@ Lorsqu'on dessine le premier escalier qui monte, la tortue commence par monter �
 la verticale et dessine ainsi la hauteur d'une marche. En revanche, lorsqu'elle
 dessine le deuxième escalier en descendant, elle dessine d'abord la largeur
 d'une marche. Pour ne pas avoir à définir une nouvelle commande pour dessiner le
-deuxième escalier en descendant, il suffit de se tourner 
+deuxième escalier en descendant, il suffit de se tourner
 
 1.  Tourner la tortue de $90°$ à droite
 2.  Dessiner l'escalier descendant en faisant comme si les largeur étaient des
@@ -590,7 +638,7 @@ def marche(hauteur, largeur):
 def escalier(nombre_marches, hauteur, largeur):
     repeat nombre_marches:
         marche(hauteur / nombre_marches, largeur / nombre_marches)
-    
+
 def double_escalier(nombre_marches):
     escalier(nombre_marches, 200, 500 / 2)
     right(90)
