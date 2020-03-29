@@ -299,8 +299,10 @@ def rangee(cote, nb_carres):
 def grille(nb_colonnes, nb_rangees, cote):
     repeat nb_colonnes:
         rangee(cote, nb_rangees)
+        penUp()
         va_a_gauche(nb_rangees * cote)
         back(cote)
+        penDown()
 
 makeTurtle()
 setPos(-200, 200)
