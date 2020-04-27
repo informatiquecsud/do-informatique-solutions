@@ -830,3 +830,137 @@ def double_escalier(nombre_marches, hauteur_tot, largeur_tot):
     escalier(nombre_marches, largeur_tot / 2, hauteur_tot)
 double_escalier(4, 200, 500)
 ```
+
+## Exercice 2, page 57
+
+On peut facilement identifier un motif qui se répète dans l'illustration : la
+pyramide. Il faut donc définir une commande nommée par exemple `pyramide` pour
+dessiner ce motif. De plus, comme la taille des pyramides doit pouvoir être
+déterminée lors de l'appel de la commande, il qu'elle prenne un paramètre `cote`
+ou `longueur`.
+
+
+```python webtj[autorun, width=130%, speed=30]
+from gturtle import *
+
+def pyramide(cote):
+    '''
+    dessine une pyramide (simplifiée) de côté c et d'ouverture 60°
+    rend la tortue dans la direction de départ
+    '''
+    forward(cote)
+    right(120)
+    forward(cote)
+    left(120)
+
+def rangeeTriangles(nombre_cotes, mesure_cote):
+    '''
+    dessine une rangée de `nombre_cotes` pyramides de côté `mesure_cote`
+    rend la tortue dans la direction de départ
+    '''
+    right(30)
+    repeat nombre_cotes:
+        pyramide(mesure_cote)
+    left(30)
+
+makeTurtle()
+
+# Positionne la tortue au bon endroit pour centrer
+# le dessin horizontalement
+penUp()
+left(90)
+forward(31 * 20 / 2)
+right(90)
+penDown()
+
+rangeeTriangles(20, 31)
+```
+
+## Exercice 3, page 57
+
+Il suffit de se rappeler qu'un carré n'est rien d'autre qu'un 4-gone régulier, à
+savoir un polygone régulier à 4 côtés.
+
+
+```python webtj[autorun, width=130%]
+from gturtle import *
+
+def polygone(nombre_cotes, mesure_cote):
+    '''
+    dessine un polygone à n côtés de longueur c
+    revient au point de départ dans la même direction
+    '''
+    repeat nombre_cotes:
+        forward(mesure_cote)
+        right(360 / nombre_cotes)
+
+def carre(mesure_cote):
+    '''
+    dessine un carré de côté c sous la forme d'un polygone à 4 côtés
+    '''
+    polygone(4, mesure_cote)
+
+makeTurtle()
+carre(100)
+```
+
+## Projet 4, page 57
+
+::: warning
+
+Le projet 4 est plus conséquent que les autres exercices et permet plus de
+liberté. Il est intéressant de réaliser ce genre d'exercices par groupes de deux
+ou trois personnes. Il faut alors veiller à ce que chacun puisse contribuer à la
+réalisation du programme.
+
+:::
+
+Voici un exemple de solutions. Il est bien entendu possible de réaliser des
+fleurs encore plus jolies. Ce projet étant plus conséquent et libre, le code
+n'est pas fourni dans ce corrigé. Le code est plutôt présenté sous forme de
+vidéo qui montre comment réfléchir pour décomposer le problème
+
+::: details Solution
+
+```python
+from gturtle import *
+
+#dessine vers la droite une fraction f de cercle
+#en autant de segments de longueur 1
+def fractionDeCercle(f):
+    repeat 360 * f:
+        forward(1)
+        right(1)
+
+#dessine un pétale comme l'assemblage de deux fractions f de cercle
+def petale(f):
+    repeat 2:
+        fractionDeCercle(f)
+        right(180 - 360 * f)
+
+#dessine une fleur de couleur c et d'épaisseur w
+#avec une tige de longueur t et n pétales en deux fractions f de cercle
+#revient au point de départ dans la même direction
+def fleur(t, n, f, c, w):
+    setPenColor(c)
+    setPenWidth(w)
+    forward(t)
+    repeat n:
+        petale(f)
+        right(360 / n)
+    back(t)
+
+makeTurtle()
+hideTurtle()
+
+#dessine une fleur verte d'épaisseur 2 avec 9 pétales 
+#en quart de cercle et une tige de longueur 150
+fleur(150, 9, 1/4, "green", 2)
+```
+
+:::
+
+## Projet 5, page 54
+
+Le corrigé de ce projet n'est pas (encore) disponible. Laissez libre cours à
+votre imagination pour la réalisation de ce projet.
