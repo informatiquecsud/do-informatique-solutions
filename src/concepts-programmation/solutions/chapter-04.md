@@ -549,7 +549,7 @@ setPos(-150, 0)
 rangee_carres(22, 7, "blue", "green")
 ```
 
-## Activité 17, page 54
+# Activité 17, page 54
 
 La commande `rangee_carres()` est appelé avec les paramètres 
 
@@ -557,10 +557,92 @@ La commande `rangee_carres()` est appelé avec les paramètres
 rangee_carres(65, 3, "yello", "purple")
 ```
 
-Cote = 65
-n=3
-donc la longueur sera cote * 2 * n = 65 * 2 * 3 = 390
+Cela signifie qu'au sein du corps de la commande `rangee_carres()`, le tableau
+de valeur des paramètres pour l'appel de la commande `rangee_carres(65, 3,
+"yello", "purple")` est donc 
 
+|   Name | Wert |
+| -----: | ---- |
+| `cote` | 65   |
+|    `n` | 3    |
+
+La commande `va_a_gauche()` va donc être appelée à la ligne 14 avec l'expression
+`cote * 2 * n` qui est évaluée à `390`. Le paramètre `longueur`, pour cet appel
+de commande, a donc la valeur 390.
+
+## Activité 18, page 55
+
+Dans cet exercice, on rassemble tous les différents composants logiciels
+(briques de base) développés dans les exercices 14 à 16 et les exemples 11A et
+11B. La réalisation du programme pour dessiner un échiquier montre bien la
+stratégie à utiliser pour développer un projet complexe à l'aide de la
+conception modulaire.
+
+Voici le code complet pour résoudre l'exercice 18.
+
+```python webtj[autorun, width=130%]
+from gturtle import *
+
+def ligne_epaisse(cote):
+    forward(cote)
+    right(90)
+    forward(1)
+    right(90)
+    forward(cote)
+    right(180)
+
+def carre_couleur(cote, couleur):
+    setPenColor(couleur)
+    repeat cote-1:
+        ligne_epaisse(cote)
+
+def va_a_gauche(longueur):
+    penUp()
+    left(90)
+    forward(longueur)
+    right(90)
+    penDown()
+
+def va_a_droite(longueur):
+    penUp()
+    right(90)
+    forward(longueur)
+    left(90)
+    penDown()
+
+def rangee_carres(cote, n, couleur1, couleur2):
+    repeat n:
+        carre_couleur(cote, couleur1)
+        va_a_droite(1)
+        carre_couleur(cote, couleur2)
+        va_a_droite(1)
+    va_a_gauche(cote * 2 * n)
+
+def echiquier(cote, m, n, couleur1, couleur2):
+    '''dessine l'échiquier de 2*m lignes'''
+    repeat m:
+        rangee_carres(cote, n, couleur1, couleur2)
+        penUp()
+        forward(cote)
+        penDown()
+        rangee_carres(cote, n, couleur2, couleur1)
+        penUp()
+        forward(cote)
+        penDown()
+        
+makeTurtle()
+hideTurtle()
+setPos(-150, 0)
+echiquier(20, 8, 3, "cyan", "dark green")
+```
+
+## Activité 19, page 55
+
+Il suffit d'appeler la commande `echiquier()` comme suit:
+
+```python
+echiquier(25, 4, 6, "brown", "yellow")
+```
 
 ## Exercice 1, page 57
 
