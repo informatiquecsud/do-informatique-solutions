@@ -311,6 +311,12 @@ setPos(-200, 200)
 grille(5, 9, 20)
 ```
 
+## Correction vidéo des activités 12 et 13 
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/nKK-bMaLWXw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+
 ## Activité 12, page 53
 
 Le programme n'est pas très difficile à réaliser. Ce qui est très important,
@@ -472,6 +478,89 @@ setPos(0, -100)
 pile(40, "red", "yellow")
 
 ```
+
+## Activité 15, page 54
+
+La commande `va_a_droite()` doit simplement décaler la tortue d’un pas à droite,
+afin de pouvoir dessiner le carré suivant sans créer de chevauchement entre les
+deux carrés.
+
+```python
+def va_a_droite(longueur):
+    penUp()
+    right(90)
+    forward(longueur)
+    left(90)
+    penDown()
+```
+
+## Activité 16, page 54
+
+```python webtj[autorun, width=130%]
+from gturtle import *
+
+def ligne_epaisse(cote):
+    '''dessine une double ligne'''
+    forward(cote)
+    right(90)
+    forward(1)
+    right(90)
+    forward(cote)
+    right(180)
+
+def carre_couleur(cote, couleur):
+    ''' dessine un carré rempli '''
+    setPenColor(couleur)
+    repeat cote - 1:
+        ligne_epaisse(cote)
+
+def va_a_gauche(longueur):
+    '''décale la tortue à gauche de `longueur` pixels'''
+    penUp()
+    left(90)
+    forward(longueur)
+    right(90)
+    penDown()
+
+def va_a_droite(longueur):
+    '''décale la tortue à droite de `longueur` pixels'''
+    penUp()
+    right(90)
+    forward(longueur)
+    left(90)
+    penDown()
+
+def rangee_carres(cote, n, couleur1, couleur2):
+    ''' dessine une ligne de 2*n carrés de longeur `cote` en alternant les couleurs '''
+    repeat n:
+        carre_couleur(cote, couleur1)
+        va_a_droite(1)
+        carre_couleur(cote, couleur2)
+        va_a_droite(1)
+    va_a_gauche(cote * 2 * n)
+    
+
+makeTurtle()
+hideTurtle()
+setPos(-150, 0)
+# on a besoin de 14 carrés, comme chaque appel à rangee_carres on dessine deux
+# carrés, on doit pas oublier pour la valeur n de diviser le nombre de carrés
+# total par deux
+rangee_carres(22, 7, "blue", "green")
+```
+
+## Activité 17, page 54
+
+La commande `rangee_carres()` est appelé avec les paramètres 
+
+```python
+rangee_carres(65, 3, "yello", "purple")
+```
+
+Cote = 65
+n=3
+donc la longueur sera cote * 2 * n = 65 * 2 * 3 = 390
+
 
 ## Exercice 1, page 57
 

@@ -3,6 +3,7 @@ const webTJPlugin = require("./plugin-webtj.js");
 const katex = require("@abreto/markdown-it-katex");
 const mdFigure = require("markdown-it-figure");
 const mdTaskLists = require("markdown-it-task-lists");
+const MarkdownItOEmbed = require("markdown-it-oembed")
 
 // .vuepress/config.js
 module.exports = {
@@ -32,11 +33,13 @@ module.exports = {
   ],
   markdown: {
     lineNumbers: true,
+    linkify: true,
     extendMarkdown: md => {
       md.use(katex);
       md.use(mdFigure);
       md.use(mdTaskLists);
       md.use(webTJPlugin);
+      md.use(MarkdownItOEmbed);
     }
   },
   themeConfig: themeConfig

@@ -20,5 +20,7 @@
     "serve": "vuepress serve src",
     "deploy": "yarn build && surge src/.vuepress/dist https://solution.doi.21-learning.surge.sh/"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdown-it-oembed": "^1.0.2"
+  }
 }
