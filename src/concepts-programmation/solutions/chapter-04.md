@@ -920,45 +920,66 @@ fleurs encore plus jolies. Ce projet étant plus conséquent et libre, le code
 n'est pas fourni dans ce corrigé. Le code est plutôt présenté sous forme de
 vidéo qui montre comment réfléchir pour décomposer le problème
 
-::: details Solution
 
-```python
+```python webtj[autorun, width=130%, speed=15]
 from gturtle import *
 
-#dessine vers la droite une fraction f de cercle
-#en autant de segments de longueur 1
-def fractionDeCercle(f):
-    repeat 360 * f:
-        forward(1)
-        right(1)
+def arc_de_cercle(fraction_cercle, longueur):
+    repeat 72 * fraction_cercle:
+        forward(longueur / (72 * fraction_cercle))
+        right(5)
+        
+def disque(rayon, couleur):
+    setPenColor(couleur)
+    setPenWidth(5)
+    repeat 36:
+        forward(rayon)
+        back(rayon)
+        right(10)
 
-#dessine un pétale comme l'assemblage de deux fractions f de cercle
-def petale(f):
+def petale(fraction_cercle, longueur, couleur):
+    setPenWidth(2)
+    setPenColor(couleur)
     repeat 2:
-        fractionDeCercle(f)
-        right(180 - 360 * f)
-
-#dessine une fleur de couleur c et d'épaisseur w
-#avec une tige de longueur t et n pétales en deux fractions f de cercle
-#revient au point de départ dans la même direction
-def fleur(t, n, f, c, w):
-    setPenColor(c)
-    setPenWidth(w)
-    forward(t)
-    repeat n:
-        petale(f)
-        right(360 / n)
-    back(t)
-
+        arc_de_cercle(fraction_cercle, longueur)
+        right(180 - 360 * fraction_cercle)
+        
+def fleur(
+    fraction_cercle,
+    couleur_petales,
+    longueur_petales,
+    nbre_petales
+):
+    repeat nbre_petales:
+        petale(fraction_cercle, longueur_petales, couleur_petales)
+        right(360 / nbre_petales)
+        
+def tige(longueur, couleur, epaisseur):
+    setPenWidth(epaisseur)
+    setPenColor(couleur)
+    back(longueur)
+    feuille(couleur, longueur / 2)
+    forward(longueur * 1 / 4)
+    left(120)
+    feuille(couleur, longueur / 2)
+    right(120)
+    forward(longueur * 3 / 4)
+    
+def feuille(couleur, longueur):
+    petale(1/3, longueur, couleur)
+    
+def dessin():
+    tige(200, "green", 4)
+    fleur(1/6, "orange", 120, 13)
+    disque(15, "yellow")
+    
 makeTurtle()
 hideTurtle()
-
-#dessine une fleur verte d'épaisseur 2 avec 9 pétales 
-#en quart de cercle et une tige de longueur 150
-fleur(150, 9, 1/4, "green", 2)
+dessin()
+#showTurtle()
 ```
 
-:::
+
 
 ## Projet 5, page 54
 
