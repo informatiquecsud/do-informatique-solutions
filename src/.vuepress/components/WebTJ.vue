@@ -72,7 +72,7 @@ export default {
       this.Sk = this.iframeGlobalSpace.Sk;
 
       // wait for the ace editor and jquery to be fully loaded ...
-      if (this.iframeGlobalSpace && this.iframe && this.$ && this.Sk) {
+      if (this.iframeGlobalSpace && this.iframe && this.$ && this.ace && this.Sk) {
         setTimeout(() => {
           // load the code into the editor
           const editorDiv = this.$("#editor")[0];
@@ -92,7 +92,8 @@ export default {
 
         if (this.autorun) {
           setTimeout(() => {
-            this.iframeGlobalSpace.runProgram();
+            console.log(this.iframeGlobalSpace )
+            this.iframeGlobalSpace && this.iframeGlobalSpace.runProgram();
           }, 1000);
         }
       }
