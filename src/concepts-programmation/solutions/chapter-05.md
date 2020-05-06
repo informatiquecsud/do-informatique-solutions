@@ -58,3 +58,16 @@ On peut noter les éléments suivants:
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/wd7jFj_yUlg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+## Activité 9
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/bKzs0DpgUPU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 10
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/ESHXN2IpKpU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 11
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/cqoMc82qz-Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
