@@ -77,11 +77,11 @@ On peut noter les éléments suivants:
 
 ## Activité 13
 
-<iframe width="100%" height="420" src="https://www.youtube.com/embed/8adnKY8OtQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+La vidéo est en cours de préparation
 
 ## Activité 14
 
-<iframe width="100%" height="420" src="https://www.youtube.com/embed/8adnKY8OtQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+La vidéo est en cours de préparation
 
 ## Activité 15
 
