@@ -71,3 +71,24 @@ On peut noter les éléments suivants:
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/cqoMc82qz-Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
+## Activité 12
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/8adnKY8OtQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 13
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/8adnKY8OtQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 14
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/8adnKY8OtQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 15
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/YhFlzZk7gpM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+La vidéo suivante montre comment se débarrasser du petit pixel bleu dans la
+dernière branche de l'étoile.
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/8AlMNRIGf6c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
