@@ -92,3 +92,25 @@ dernière branche de l'étoile.
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/8AlMNRIGf6c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+## Activité 16
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/p7ii90XUXrQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 17
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/9GQrqIZHI8A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+::: details Preuve mathématique (facultatif)
+
+Cette vidéo présente une preuve que la suite numérique construite dans cet
+exercice est la suite des carrés parfaits ($x_n = x^2$). Elle fait intervenir quelques notions élémentaires peut-être encore non vues en cours, en particulier celui de suite numérique et la somme
+
+$$
+1 + 2 + 3 + \ldots + N = \frac{N \cdot (N+1)}{2}
+$$
+
+Cette petite preuve est évidemment facultative dans le cours. Elle permet néanmoins à ceux qui aiment les mathématiques de s'amuser un petit peu et d'apprendre peut-être quelque chose dans cette branche.
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/oLgFkPDCWwE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+:::
