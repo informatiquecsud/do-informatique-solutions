@@ -117,7 +117,17 @@ Cette petite preuve est évidemment facultative dans le cours. Elle permet néan
 
 ## Activité 18
 
-Vidéo en cours de préparation
+```python webtj[autorun]
+def calcule(x):
+    resultat = 2*x**2 - 3*x + 1
+    print(resultat)
+
+calcule(0)
+calcule(1)
+calcule(2)
+calcule(5)
+```
+
 
 ## Activité 19
 
