@@ -41,7 +41,7 @@ dessiné.
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/77Ubh1Eo4ls" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-## Activité 8 (*)
+## Activité 8 (\*)
 
 Cet exercice demande un peu plus de travail que les précédents.
 
@@ -49,7 +49,7 @@ Cet exercice demande un peu plus de travail que les précédents.
 
 On peut noter les éléments suivants:
 
-*   Les cercles sont concentriques et la taille des cercles augmente dans une
+-   Les cercles sont concentriques et la taille des cercles augmente dans une
     progression arithmétique (on rajoute à chaque fois une même quantité au
     rayon), au contraire de l'exemple 2 qui multipliait à chaque fois le
     périmètre par 1,2.
@@ -69,7 +69,6 @@ On peut noter les éléments suivants:
 ## Activité 11
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/cqoMc82qz-Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
 
 ## Activité 12
 
@@ -103,13 +102,17 @@ dernière branche de l'étoile.
 ::: details Preuve mathématique (facultatif)
 
 Cette vidéo présente une preuve que la suite numérique construite dans cet
-exercice est la suite des carrés parfaits ($x_n = x^2$). Elle fait intervenir quelques notions élémentaires peut-être encore non vues en cours, en particulier celui de suite numérique et la somme
+exercice est la suite des carrés parfaits ($x_n = x^2$). Elle fait intervenir
+quelques notions élémentaires peut-être encore non vues en cours, en particulier
+celui de suite numérique et la somme
 
 $$
 1 + 2 + 3 + \ldots + N = \frac{N \cdot (N+1)}{2}
 $$
 
-Cette petite preuve est évidemment facultative dans le cours. Elle permet néanmoins à ceux qui aiment les mathématiques de s'amuser un petit peu et d'apprendre peut-être quelque chose dans cette branche.
+Cette petite preuve est évidemment facultative dans le cours. Elle permet
+néanmoins à ceux qui aiment les mathématiques de s'amuser un petit peu et
+d'apprendre peut-être quelque chose dans cette branche.
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/oLgFkPDCWwE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -128,7 +131,35 @@ calcule(2)
 calcule(5)
 ```
 
-
 ## Activité 19
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/9cnPObe966I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 20
+
+la solution se trouve à la fin de la vidéo de correction de l'activité 11
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/cqoMc82qz-Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 21
+
+Pour répondre à ce genre de question et prévoir ce que va faire un programme, il
+faut l'exécuter à la main pas à pas. Le mieux est de dessiner le tableau d'états
+(ou tableau temporel). On choisit d'observer les variables après la ligne 5.
+
+| itération | `x` | `nombre`  |
+| --------: | --- | --------- |
+|         - | 1   | 0         |
+|         1 | 1   | 1         |
+|         2 | 1   | 11        |
+|         3 | 1   | 111       |
+|         4 | 1   | 1111      |
+|       ... | 1   | ...       |
+|         9 | 1   | 111111111 |
+
+On constate qu'après chaque itération dans la boucle, la valeur de `nombre` est
+un nombre qui contient un `1` de plus. Ce phénomène est normal puisqu'à chaque
+itération, on multiplie `nombre` par 10 et on rajoute ensuite `1`. La variable
+`x` ne change par contre pas durant l'exécution du programme.
+
+Vidéo en cours de préparation
