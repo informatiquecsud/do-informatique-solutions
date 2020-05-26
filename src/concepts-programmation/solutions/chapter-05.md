@@ -162,4 +162,18 @@ un nombre qui contient un `1` de plus. Ce phénomène est normal puisqu'à chaqu
 itération, on multiplie `nombre` par 10 et on rajoute ensuite `1`. La variable
 `x` ne change par contre pas durant l'exécution du programme.
 
+
 Vidéo en cours de préparation
+
+## Exercice 1, page 75
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/3-O7msfdP94" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Exercice 2, page 75
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/7A_gkgA4X9g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Exercice 3, page 75
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/tfGwx3nTV1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
