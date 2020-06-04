@@ -76,3 +76,13 @@ if forme == "étoile":
 ![Ordinogramme](./chapter-06/activity-06-flowchart.png)
 
 :::
+
+## Activité 8
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/IjbiTvnbvb0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 9
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/NIKZpvXBak4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
