@@ -89,21 +89,14 @@ if forme == "étoile":
 
 :::: danger Avertissement
 
-Le programme ne s'exécute pas normalement sur le site Web. Il faut développer ce
-programme et le tester dans la version Desktop de TigerJython pour avoir un
-comportement normal.
-
-:::  details Plus de détails
-
-Le problème dans la version Web est que la programme va d'abord lire toutes les
-saisies de l'utilisateur avant que la tortue ne dessine. Cela ne devrait pas se
-passer ainsi. La tortue devrait immédiatement exécuter la commande correspondant à la saisir de l'utilisateur.
-
-:::
+Comme on veut que l'utilisateur puisse diriger la tortue, il faut supprimer la
+commande ``hideTurtle()`` à la ligne 4 de l'exemple 8 dans le livre.
 
 ::::
 
-```python webtj[width=100%]
+Cet exercice est presque un peu trop simple ... Il suffit en effet de remplacer les angles de 90° par 45° dans les commandes `right()` et `left()`.
+
+```python webtj[width=130%]
 from gturtle import *
 
 makeTurtle()
@@ -113,10 +106,10 @@ repeat 5:
     chemin = input("Direction : (d/g/a)?")
 
     if chemin == "d":
-        right(90)
+        right(45)
         forward(10)
     elif chemin == "g":
-        left(90)
+        left(45)
         forward(10)
     elif chemin == "a":
         forward(10)
@@ -124,3 +117,40 @@ repeat 5:
         print("Commande inconnue")
 ```
 
+
+## Activité 11
+
+::: details Indice 1
+
+Nous avions développé une commande pour dessiner des carrés pleins de taille 100
+à la page 38.
+
+:::
+
+::: details Indice 2
+
+Il est pratique de définir une commande `carre_plein(taille)` qui permet de dessiner des carrés pleins de n'importe quelle taille:
+
+```python webtj[autorun]
+from gturtle import *
+
+def ligne_epaisse(longueur):
+    fd(longueur)
+    rt(90)
+    fd(1)
+    rt(90)
+    fd(longueur)
+    right(180)
+    
+def carre_plein(taille):
+    repeat taille - 1:
+        ligne_epaisse(taille)
+
+makeTurtle()
+hideTurtle()
+carre_plein(100)
+```
+
+:::
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/NIKZpvXBak4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
