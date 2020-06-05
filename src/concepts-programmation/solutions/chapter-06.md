@@ -131,7 +131,7 @@ Nous avions développé une commande pour dessiner des carrés pleins de taille 
 
 Il est pratique de définir une commande `carre_plein(taille)` qui permet de dessiner des carrés pleins de n'importe quelle taille:
 
-```python webtj[autorun]
+```python 
 from gturtle import *
 
 def ligne_epaisse(longueur):
