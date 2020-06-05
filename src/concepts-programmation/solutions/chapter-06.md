@@ -85,4 +85,42 @@ if forme == "étoile":
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/NIKZpvXBak4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+## Activité 10
+
+:::: danger Avertissement
+
+Le programme ne s'exécute pas normalement sur le site Web. Il faut développer ce
+programme et le tester dans la version Desktop de TigerJython pour avoir un
+comportement normal.
+
+:::  details Plus de détails
+
+Le problème dans la version Web est que la programme va d'abord lire toutes les
+saisies de l'utilisateur avant que la tortue ne dessine. Cela ne devrait pas se
+passer ainsi. La tortue devrait immédiatement exécuter la commande correspondant à la saisir de l'utilisateur.
+
+:::
+
+::::
+
+```python webtj[width=100%]
+from gturtle import *
+
+makeTurtle()
+hideTurtle()
+
+repeat 5:
+    chemin = input("Direction : (d/g/a)?")
+
+    if chemin == "d":
+        right(90)
+        forward(10)
+    elif chemin == "g":
+        left(90)
+        forward(10)
+    elif chemin == "a":
+        forward(10)
+    else:
+        print("Commande inconnue")
+```
 
