@@ -172,7 +172,13 @@ repeat 25:
     x *= 2
 ```
 
-## Activité 14
+## Activité 14 (*)
+
+::: warning Avertissement
+
+Cet exercice ne peut pas être résolu intelligemment avec vos connaissances actuelles. Lisez le chapitre "interrompre une boucle" pour apprendre à interrombre une boucle avec l'instruction `break` ou apprenez à utiliser les boucles `while`.
+
+:::
 
 ## Activité 15
 
