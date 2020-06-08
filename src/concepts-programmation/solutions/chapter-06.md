@@ -261,11 +261,20 @@ test_2(1)
 
 ## Activité 21
 
-::: Warning Remarque
+::: warning Remarque
 
-Au lieu d'utiliser la fonction `isInteger(n)` qui n'existe pas en Python
-standard, on fait appel à l'opérateur `//` pour déterminer si `n` est un nombre
-entier.
+Au lieu d'utiliser la fonction `isInteger()` qui n'existe pas en Python
+standard, on utiliser l'opérateur `%` pour vérifier si un nombre est diviseur d'un nombre. En gros, pour vérifier que `x` est un diviseur de `n`, il suffit de vérifier que $n$ est divisible par $x$, autrement dit que le reste de la division de $n$ par $x$ est nul.
+
+```python
+n = 24
+x = input("entrer un nombre")
+
+if n % x == 0:
+    print(x, "est un diviseur de ", n)
+else:
+    print(x, "n'est pas un diviseur de ", n)
+```
 
 :::
 
