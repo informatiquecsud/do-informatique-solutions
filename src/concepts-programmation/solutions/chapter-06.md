@@ -153,4 +153,127 @@ carre_plein(100)
 
 :::
 
-<iframe width="100%" height="420" src="https://www.youtube.com/embed/NIKZpvXBak4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/oaH_I56tLdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+## Activité 12
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/5ZEjXBldMUg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 13
+
+```python webtj[autorun]
+x = 1
+repeat 25:
+    if x > 100:
+        x = 1
+    print(x)
+    x *= 2
+```
+
+## Activité 14
+
+## Activité 15
+
+En cours de préparation
+
+## Activité 16
+
+En cours de préparation
+
+## Activité 17
+
+La négation de l'affirmation $x > 2$, est $x \leq 2$ et non $x < 2$. Mathématiquement, cela peut être ramené à la théorie des ensembles. 
+
+*   Soit $X$ l'ensemble de toutes les valeurs possibles de la variable $x$
+
+    $$
+    X = \{\text{valeurs possibles de la variable }x\}
+    $$
+
+*   Soit $A$ l'ensemble des valeurs de x telles que l'affirmation "$x > 2$" est vraie
+    
+    $$
+    A = \{x \in X \mid x > 2\}
+    $$
+
+*   Alors l'affirmation contraire de $x > 2$ est vraie pour les valeurs de $x \in B$, où 
+
+    $$
+    B = \bar{A} := X \setminus A = \{x \in X \mid x \leq 2\}
+    $$ 
+
+## Activité 18
+
+1.  $x < 1$
+
+2.  x est un nombre positif ou nul ($x \geq 0$)
+
+3.  La variable `nom` est différente du texte "rouge". En code cela s'écrirait de
+    la manière suivante : `nom != "rouge"`.
+
+3.  La négation de "au moins" est "moins que". La négation est donc "moins que 2 êtres humains sont assis dans la voiture". On pourrait également dire "0 ou 1 personne est assise dans la voiture".
+
+5.  Il y a quelque chose dans l'armoire (l'armoire n'est pas vide).
+
+    ::: warning Attention
+
+    La négation n'est pas "L'armoire est pleine". Il suffit qu'il y ait juste un tout petit rien dans l'armoire pour quelle ne soit pas vide.
+
+    :::
+
+6.  Le programme n'est pas écrit de manière erronée (donc il est écrit de manière correcte, sans erreur)
+
+7.  Le nombre de jeunes dans la classe est différent de 22
+
+8.  Demain, il fera moins de 24°C à Lausanne
+
+
+## Activité 19
+
+1.  `if x < 3`
+
+2.  `if nombre >= 0`
+
+3.  `if a <= b`
+
+4.  `if couleur != "rouge"`
+
+## Activité 20
+
+En effectuant quelques tests, on peut constater que les deux commandes sont équivalentes. Il est judicieux de tester les commandes pour les valeurs $x \in \{-1, 0, 1\}$.
+
+```python
+test_1(-1)
+test_2(-1)
+test_1(0)
+test_2(0)
+test_1(1)
+test_2(1)
+```
+
+## Activité 21
+
+::: Warning Remarque
+
+Au lieu d'utiliser la fonction `isInteger(n)` qui n'existe pas en Python
+standard, on fait appel à l'opérateur `//` pour déterminer si `n` est un nombre
+entier.
+
+:::
+
+## Activité 22
+
+Cet exercice n'a pas tellement de sens à ce stade du cours car il manque l'instruction `break` pour interrompre une boucle infinie.
+
+```python
+x = 1
+repeat:
+    carre = x ** 2 
+    if not carre > 100:
+        print(carre)
+    else:
+        break
+
+```
