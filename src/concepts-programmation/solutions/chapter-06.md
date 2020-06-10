@@ -359,3 +359,90 @@ Il suffit de rajouter une instruction `if` avec une condition appropriée qui ut
 Il n'y a pas d'indice 3 ... il faut juste mettre ensemble les indices 1 et 2 ;-)
 
 :::
+
+## Activité 26
+
+::: details Indice 1 : afficher les diviseurs de 54
+
+Pour afficher les diviseurs de 54, on peut utiliser le code suivant qui consiste
+à parcourir tous les nombres entiers inférieurs à 54 et à les afficher s'ils
+divisent 54, à savoir si `54 % n == 0` (54 est un multiple de $n$)
+
+```python webtj[autorun]
+n = 1
+repeat 54:
+    if 54 % n == 0:
+        print(n)
+    n += 1
+```
+
+:::
+
+
+::: details Indice 2 : afficher les diviseurs de 24
+
+Pour afficher les diviseurs de 24, le code est très similaire
+:::
+
+::: details Indice " : afficher les diviseurs de 54 et 24
+
+Pour afficher les diviseurs de 54 et 24, il suffit d'afficher les diviseurs de 24 qui sont en même temps des diviseurs de 54. Pour cela, il ne faut faire qu'une seule boucle mais changer la condition dans le `if` en utilisant un opérateur logique pour combiner les deux conditions.
+
+:::
+
+::: details Code complet
+
+```python webtj[autorun]
+n = 1
+repeat 24:
+    if (24 % n == 0) and (54 % n == 0):
+        print(n)
+    n += 1
+```
+
+:::
+
+## Activité 27
+
+::: details Indice 1
+
+Le code est très similaire à l'activité 26
+
+:::
+
+::: details Indice 2
+
+Il faut répéter la boucle 1000 fois et incrémenter à chaque fois la variable `n`.
+
+:::
+
+::: details Indice 3
+
+Il faut utiliser la condition suivante
+
+```python
+if n % 7 == 0 and not n % 3 == 0:
+    print(n)
+```
+
+suggérée dans le livre mais on peut également utiliser la condition 
+
+```python
+if n % 7 == 0 and n % 3 != 0:
+    print(n)
+```
+
+qui est plus élégante.
+:::
+
+::: details Code complet
+
+```python webtj[autorun]
+n = 1
+repeat 999:
+    if n % 7 == 0 and n % 3 != 0:
+        print(n)
+    n += 1
+```
+
+:::
