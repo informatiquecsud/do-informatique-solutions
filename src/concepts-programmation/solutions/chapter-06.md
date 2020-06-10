@@ -437,7 +437,7 @@ qui est plus élégante.
 
 ::: details Code complet
 
-```python webtj[autorun]
+```python
 n = 1
 repeat 999:
     if n % 7 == 0 and n % 3 != 0:
@@ -446,3 +446,32 @@ repeat 999:
 ```
 
 :::
+
+## Activité 28
+
+```python
+def moyenne_harmonique(a, b):
+    if a != 0 and b != 0:
+        calcul = 1 / (1 / a + 1 / b)
+        print(calcul)
+    else:
+        print "Impossible de calculer la moyenne harmonique de ", a, "et", b, ": a et b doivent être non nuls"
+
+moyenne_harmonique(5, 10)
+moyenne_harmonique(-5, 10)
+moyenne_harmonique(5, 0)
+moyenne_harmonique(0, 5)
+moyenne_harmonique(0, 0)
+
+```
+
+## Activité 29
+
+```python
+prenom = input("Quel est ton prénom?")
+if not prenom == "Dennis" and not prenom == "Maria":
+    print "Je ne te connais pas!"
+else:
+    print "Bienvenue! Quel plaisir!"
+```
+
