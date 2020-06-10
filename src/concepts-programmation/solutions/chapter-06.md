@@ -292,3 +292,36 @@ repeat:
         break
 
 ```
+
+## Activité 23
+
+Soit $A$ l'affirmation $x > 3$ et $B$ l'affirmation $x \leq 0$.
+
+::: warning Remarque
+
+La question n'a de sens que si `x` est une variable entière ($x \in \mathbb{Z}$)
+
+:::
+
+On considère l'ensemble $X_A = \{x \in \mathbb{Z} | x > 3\} = \{4, 5, 6, \ldots\}$ des valeurs de `x` qui satisfont à la condition $A$ et l'ensemble  $X_B = \{x \in \mathbb{Z} | x \leq 0\} = \{0, -1, -2, , -3, \ldots\}$ des valeurs de `x` qui satisfont la condition $B$.
+
+1.  L'ensemble des valeurs de `x` qui satisfont la condition  $A$ ou $B$ est
+    
+    $$
+    X_{A\text{ ou }B} = X_A \cup X_B = \mathbb{Z} \setminus \{1, 2, 3\}
+    $$
+
+2.  L'ensemble des valeurs de `x` qui satisfont la condition $A$ et $B$ est
+    
+
+    $$
+    X_{A\text{ et }B} = X_A \cap X_B = \emptyset
+    $$
+
+## Activité 24
+
+La stratégie consiste à distinguer les cas dans la partie `else` du programme. Pour cela, il faut utiliser une structure `if-elif-else` imbriquée dans la partie `else`.
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/cx9K6EHj7EU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
