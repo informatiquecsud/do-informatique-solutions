@@ -325,3 +325,37 @@ La stratégie consiste à distinguer les cas dans la partie `else` du programme.
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/cx9K6EHj7EU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
+## Activité 25
+
+::: warning Remarque
+
+À ce stade, vous devriez être capable de résoudre ce problème assez aisément. Aucun corrigé complet n'est donc fourni.
+
+:::
+
+::: details Indice 1
+
+La commande `cercle(nombre_cotes, perimetre`)` est maintenant bien connue :
+
+```python
+def cercle(nombre_cotes, perimetre):
+    repeat nombre_cotes:
+        forward(perimetre / nombre_cotes)
+        right(360 / nombre_cotes)
+
+```
+
+:::
+
+
+::: details Indice 2
+
+Il suffit de rajouter une instruction `if` avec une condition appropriée qui utilise l'opérateur logique `and` pour combiner les deux conditions qui doivent être satisfaites pour dessiner le cercle.
+
+:::
+
+::: details Indice 3
+
+Il n'y a pas d'indice 3 ... il faut juste mettre ensemble les indices 1 et 2 ;-)
+
+:::
