@@ -475,3 +475,102 @@ else:
     print "Bienvenue! Quel plaisir!"
 ```
 
+## Activité 30
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/gMvzYPsnKm0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+## Activité 31
+
+On utilise l'instruction `break` pour interrompre la boucle dès que la longueur du prochain segment à dessiner dépasser le maximum `cote_max`:
+
+```python
+from gturtle import *
+
+def spirale(cote, retrecissement, cote_min):
+    repeat 1000:
+        if cote < cote_min:
+            break
+        forward(cote)
+        right(360 / 6)
+        cote -= retrecissement
+
+makeTurtle()
+hideTurtle()
+spirale(100, 5, 5)
+```
+
+## Activité 32
+
+Pas de corrigé pour cet exercice pour le moment.
+
+## Activité 33
+
+Pas de corrigé pour cet exercice pour le moment.
+
+## Activité 34
+
+Pas de corrigé pour cet exercice pour le moment.
+
+## Activité 35
+
+::: details Indice
+
+Cet exercice est pratiquement identique à l'activité 31. On remplace simplement l'angle `360 / 6` par `360 / 8` pour dessiner une spirale octogonale et la boucle `repeat` par une boucle `while`. Cela permet d'éviter d'utiliser l'instruction `break` qui n'est généralement pas très élégante.
+
+:::
+
+```python
+
+from gturtle import *
+
+def spirale(cote, retrecissement, cote_min):
+    while cote >= cote_min:
+        forward(cote)
+        right(360 / 8)
+        cote -= retrecissement
+
+makeTurtle()
+hideTurtle()
+spirale(100, 5, 10)
+```
+
+## Activité 36
+
+```python
+def est_carre_parfait(nombre):
+    a = 1
+    while a * a < nombre:
+        a += 1
+        
+    if a * a == nombre:
+        print nombre, "est un carré parfait"
+    else:
+        print nombre, "n'est pas un carré parfait"
+
+est_carre_parfait(267289)
+```
+
+## Activité 37
+
+Pas de corrigé pour cet exercice pour le moment
+
+## Activité 38
+
+```python
+somme = 0
+denominateur = 1
+
+while somme < 5:
+    somme += 1 / denominateur
+    denominateur += 1
+    
+print "dernier denominateur", denominateur - 1
+```
+
+::: warning Remarque
+
+Il faut afficher le nombre `denominateur - 1` après la boucle puisque, juste
+avant que la boucle n'ait été interrompue, la ligne 6 a incrémenté la variable `denominateur` "une fois de trop".
+
+:::
+
