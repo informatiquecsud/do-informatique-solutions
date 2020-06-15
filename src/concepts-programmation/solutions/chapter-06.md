@@ -565,6 +565,7 @@ while somme < 5:
     denominateur += 1
     
 print "dernier denominateur", denominateur - 1
+print "somme de toutes les fractions: ", somme
 ```
 
 ::: warning Remarque
