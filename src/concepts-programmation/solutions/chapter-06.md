@@ -575,3 +575,66 @@ avant que la boucle n'ait été interrompue, la ligne 6 a incrémenté la variab
 
 :::
 
+## Questions de compréhension
+
+1.  On peut s'assurer qu'un programme n'effectue une tâche que lorsqu'une
+    condition donnée est satisfaite à l'aide de l'instruction ``if``. La syntaxe est la suivante:
+
+    ```python
+    if condition:
+        instructions()
+    ```
+
+1.  Pour choisir entre deux options mutuellement exclusives, on utilise la
+    structure `if-else`:
+
+    ```python
+    if condition:
+        instructions_si_condition_vraie()
+    else:
+        instructions_si_condition_fausse()
+    ```
+
+1.  Oui, c'est même le cas le plus fréquent. Pour modifier le comportement d'un
+    programme selon les circonstances, on utilise précisément une instruction
+    `if` dont la condition fait référence à des variables dont la valeur peut
+    changer d'une fois à l'autre, par exemple en fonction d'une saisie
+    utilisateur.
+
+    ```python
+
+    meteo = input("Quel temps fait-il?")
+    if meteo == "pluie":
+        print "Il vaut mieux prendre le parapluie"
+    else:
+        print "Il n'est pas nécessaire de prendre le parapluie aujourd'hui"
+    ```
+
+1.  On peut interrompre prématurément l'exécution d'une boucle à l'aide de
+    l'instruction `break`, le plus souvent utilisée dans une instruction conditionnelle `if`. On préfère par contre généralement éviter d'utiliser `break` et on préfère utiliser une boucle `while` à la place lorsque c'est possible.
+
+1.  La structure d'une boucle `while` est la suivante:
+
+    ```python
+    while condition:
+        corps_de_la_boucle()
+    ```
+
+    Très souvent, on utilisera une variable pour contrôler la condition de
+    terminaison de la boucle. Cette variable peut être un compteur
+
+    ```python
+    i = 0
+    somme = 0
+    while i < 100:
+        somme += i
+        # très important d'incrémenter la variable de contrôle i, 
+        # sinon, on crée une boucle infinie qui ne pourra jamais s'arrêter
+        i += 1
+    ```
+
+1.  ...
+1.  ...
+1.  ...
+1.  ...
+1.  ...
