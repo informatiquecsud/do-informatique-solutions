@@ -638,3 +638,148 @@ avant que la boucle n'ait été interrompue, la ligne 6 a incrémenté la variab
 1.  ...
 1.  ...
 1.  ...
+
+
+Exercice 1
+----------
+
+Le corrigé de cet exercice est en cours de rédaction.
+
+Exercice 2
+----------
+
+On teste simplement chaque paire de nombres pour voir s'il y en a une où les
+deux nombres sont égaux. on combine tous les tests avec l'opérateur logique `or`. Il suffit donc que l'une des paires contiennent deux nombres égaux pour afficher le message que deux nombres au moins sont égaux. 
+
+Les paires de nombres sont les suivantes $(a, b)$, $(a, c)$, $(b, c)$.  Il suffit donc de tester la condtion 
+
+```python
+a == b or a == c or b == c
+```
+
+::: tip Remarque
+
+On définit une commande `test()` qui permet de tester tous les cas de figures
+possibles pour s'assurer que notre commande fonctionne correctement.
+
+Les cas de figures sont les suivants
+
+```Python
+sont_differents(1,2,3)
+sont_differents(1,1,2)
+sont_differents(1,2,1)
+sont_differents(1,2,2)
+sont_differents(1,1,1)
+```
+
+:::
+
+
+
+```python 
+def sont_differents(a, b, c):
+    if a == b or a == c or b == c:
+        print("Les trois nombres sont différents")
+    else:
+        print("Il y a au moins deux nombres égaux")
+        
+def test():
+    sont_differents(1,2,3)
+    sont_differents(1,1,2)
+    sont_differents(1,2,1)
+    sont_differents(1,2,2)
+    sont_differents(1,1,1)
+    
+test()
+```
+
+Exercice 3
+----------
+
+::: details Indice 1
+
+Un exercice très similaire avant déjà été fait Cet exercice a déjà été effectué au chapitre précédent. Le code était alors le suivant 
+
+```python
+from gturtle import *
+
+def triangle(cote):
+    repeat 3:
+        forward(cote)
+        left(360 / 3)
+        
+def repositionnement(cote):
+    forward(cote)
+    left(60)
+
+def figure(nombre_triangles, cote):
+    cote = 256
+    repeat 5:
+        triangle(cote)
+        repositionnement(cote)
+        cote /= 2
+            
+makeTurtle()
+speed(-1)
+setPos(200, -200)
+left(30)
+figure(6, 350)
+```
+
+:::
+
+::: details Indice 2
+
+La seule différence avec l'exercice 3, page 75 du chapitre précédent est que
+l'on ne veut pas interrompre la boucle après avoir dessiné un nombre donné de
+triangles mais une fois que le dernier triangle est plus petit qu'une certaine
+valeur. Comme on ne sait pas à l'avance le nombre de triangles à dessiner, la
+boucle `repeat` n'est pas pratique et il vaut mieux utiliser une boucle `while`.
+
+On veut exécuter la boucle tant que la taille du prochain triangle que l'on va
+dessiner est supérieure à la limite fixée.
+
+:::
+
+::: details Code complet
+
+La seule chose qui change par rapport à l'exercice 3 du chapitre 5 est le
+premier paramètre de la commande `figure()` qui n'est plus le nombre de
+triangles  dessiner mais la taille minimale des triangles. 
+
+Le seul autre changement est à la ligne 14 où l'on remplace la boucle `repeat`
+par la boucle `while`.
+
+```python
+from gturtle import *
+
+def triangle(cote):
+    repeat 3:
+        forward(cote)
+        left(360 / 3)
+        
+def repositionnement(cote):
+    forward(cote)
+    left(60)
+
+def figure(taille_min, cote):
+    cote = 256
+    while cote > taille_min:
+        triangle(cote)
+        repositionnement(cote)
+        cote /= 2
+            
+makeTurtle()
+speed(-1)
+setPos(200, -200)
+left(30)
+figure(3, 350)
+```
+
+:::
+
+Exercice 4
+----------
+
+Le corrigé de cet exercice est en cours de rédaction.
+
