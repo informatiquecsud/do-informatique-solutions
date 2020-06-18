@@ -208,3 +208,12 @@ print r, g, b
 Pour estimer la couleur codée, il faut voir que c'est surtout du rouge et du
 bleu. La couleur va donc être une sorte de magenta qui vire un peu au vert.
 
+## Exercice 4
+
+Chaque pixel occupe 3 octets et il y a $1400 \cdot  910$ pixels dans l'image. La taille du fichier image vaut donc
+
+$$
+3 \times 1400 \times 910 = 3822000 \text{ octets} 
+\approx 3.8\text{ Mo}
+$$
+
