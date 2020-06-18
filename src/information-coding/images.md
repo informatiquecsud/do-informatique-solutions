@@ -192,9 +192,9 @@ Il ne faut pas tenir compte du préfixe `0x` qui est juste là pour signifier qu
 On peut effectuer la conversion à la main. Pour cela, on regroupe les chiffres
 hexadécimaux par paquets de 2 `FF 66 C4`. On convertit ensuite chaque composante individuellement
 
-*   $FF_{16} = 15 \dot 16^1 + 15 = 255$
-*   $66_{16} = 6 \dot 16^1 + 6 = 102$
-*   $C4_{16} = 12 \dot 16^1 + 4 = 196$
+*   $FF_{16} = 15 \cdot 16^1 + 15 = 255$
+*   $66_{16} = 6 \cdot 16^1 + 6 = 102$
+*   $C4_{16} = 12 \cdot 16^1 + 4 = 196$
 
 On peut également demander à Python de faire la conversion pour nous:
 
@@ -207,3 +207,4 @@ print r, g, b
 
 Pour estimer la couleur codée, il faut voir que c'est surtout du rouge et du
 bleu. La couleur va donc être une sorte de magenta qui vire un peu au vert.
+
